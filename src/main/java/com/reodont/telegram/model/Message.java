@@ -1,202 +1,236 @@
 package com.reodont.telegram.model;
 
-import com.reodont.telegram.eip.Event;
-
 import java.io.Serializable;
 import java.util.Arrays;
 
 public class Message implements Serializable {
-    private final static long serialVersionUID = 0L;
 
-    private Integer message_id;
+    private static final long serialVersionUID = 1067397950481020177L;
+
+    private Integer messageId;
+
     private User from;
-    private Integer date;
-    private Chat chat;
-    private User forward_from;
-    private Chat forward_from_chat;
-    private Integer forward_from_message_id;
-    private Integer forward_date;
-    private Message reply_to_message;
-    private Integer edit_date;
-    private String text;
-    private MessageEntity[] entities;
-    private Audio audio;
-    private Document document;
-    private Game game;
-    private PhotoSize[] photo;
-    private Sticker sticker;
-    private Video video;
-    private Voice voice;
-    private VideoNote video_note;
-    private User[] new_chat_members;
-    private String caption;
-    private Contact contact;
-    private Location location;
-    private Venue venue;
-    private User new_chat_member;
-    private User left_chat_member;
-    private String new_chat_title;
-    private PhotoSize[] new_chat_photo;
-    private Boolean delete_chat_photo;
-    private Boolean group_chat_created;
-    private Boolean supergroup_chat_created;
-    private Boolean channel_chat_created;
-    private Long migrate_to_chat_id;
-    private Long migrate_from_chat_id;
-    private Message pinned_message;
-    private Invoice invoice;
-    private Event event;
 
-    public Integer messageId() {
-        return message_id;
+    private Integer date;
+
+    private Chat chat;
+
+    private User forwardFrom;
+
+    private Chat forwardFromChat;
+
+    private Integer forwardFromMessageId;
+
+    private Integer forwardDate;
+
+    private Message replyToMessage;
+
+    private Integer editDate;
+
+    private String text;
+
+    private MessageEntity[] entities;
+
+    private Audio audio;
+
+    private Document document;
+
+    private Game game;
+
+    private PhotoSize[] photo;
+
+    private Sticker sticker;
+
+    private Video video;
+
+    private Voice voice;
+
+    private VideoNote videoNote;
+
+    private User[] newChatMembers;
+
+    private String caption;
+
+    private Contact contact;
+
+    private Location location;
+
+    private Venue venue;
+
+    private User newChatMember;
+
+    private User leftChatMember;
+
+    private String newChatTitle;
+
+    private PhotoSize[] newChatPhoto;
+
+    private Boolean deleteChatPhoto;
+
+    private Boolean groupChatCreated;
+
+    private Boolean supergroupChatCreated;
+
+    private Boolean channelChatCreated;
+
+    private Long migrateToChatId;
+
+    private Long migrateFromChatId;
+
+    private Message pinnedMessage;
+
+    private Invoice invoice;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public User from() {
+    public Integer getMessageId() {
+        return messageId;
+    }
+
+    public User getFrom() {
         return from;
     }
 
-    public Integer date() {
+    public Integer getDate() {
         return date;
     }
 
-    public Chat chat() {
+    public Chat getChat() {
         return chat;
     }
 
-    public User forwardFrom() {
-        return forward_from;
+    public User getForwardFrom() {
+        return forwardFrom;
     }
 
-    public Chat forwardFromChat() {
-        return forward_from_chat;
+    public Chat getForwardFromChat() {
+        return forwardFromChat;
     }
 
-    public Integer forwardFromMessageId() {
-        return forward_from_message_id;
+    public Integer getForwardFromMessageId() {
+        return forwardFromMessageId;
     }
 
-    public Integer forwardDate() {
-        return forward_date;
+    public Integer getForwardDate() {
+        return forwardDate;
     }
 
-    public Message replyToMessage() {
-        return reply_to_message;
+    public Message getReplyToMessage() {
+        return replyToMessage;
     }
 
-    public Integer editDate() {
-        return edit_date;
+    public Integer getEditDate() {
+        return editDate;
     }
 
-    public String text() {
+    public String getText() {
         return text;
     }
 
-    public MessageEntity[] entities() {
+    public MessageEntity[] getEntities() {
         return entities;
     }
 
-    public Audio audio() {
+    public Audio getAudio() {
         return audio;
     }
 
-    public Document document() {
+    public Document getDocument() {
         return document;
     }
 
-    public Game game() {
+    public Game getGame() {
         return game;
     }
 
-    public PhotoSize[] photo() {
+    public PhotoSize[] getPhoto() {
         return photo;
     }
 
-    public Sticker sticker() {
+    public Sticker getSticker() {
         return sticker;
     }
 
-    public Video video() {
+    public Video getVideo() {
         return video;
     }
 
-    public Voice voice() {
+    public Voice getVoice() {
         return voice;
     }
 
-    public VideoNote videoNote() {
-        return video_note;
+    public VideoNote getVideoNote() {
+        return videoNote;
     }
 
-    public User[] newChatMembers() {
-        return new_chat_members;
+    public User[] getNewChatMembers() {
+        return newChatMembers;
     }
 
-    public String caption() {
+    public String getCaption() {
         return caption;
     }
 
-    public Contact contact() {
+    public Contact getContact() {
         return contact;
     }
 
-    public Location location() {
+    public Location getLocation() {
         return location;
     }
 
-    public Venue venue() {
+    public Venue getVenue() {
         return venue;
     }
 
-    public User newChatMember() {
-        return new_chat_member;
+    public User getNewChatMember() {
+        return newChatMember;
     }
 
-    public User leftChatMember() {
-        return left_chat_member;
+    public User getLeftChatMember() {
+        return leftChatMember;
     }
 
-    public String newChatTitle() {
-        return new_chat_title;
+    public String getNewChatTitle() {
+        return newChatTitle;
     }
 
-    public PhotoSize[] newChatPhoto() {
-        return new_chat_photo;
+    public PhotoSize[] getNewChatPhoto() {
+        return newChatPhoto;
     }
 
-    public Boolean deleteChatPhoto() {
-        return delete_chat_photo;
+    public Boolean getDeleteChatPhoto() {
+        return deleteChatPhoto;
     }
 
-    public Boolean groupChatCreated() {
-        return group_chat_created;
+    public Boolean getGroupChatCreated() {
+        return groupChatCreated;
     }
 
-    public Boolean supergroupChatCreated() {
-        return supergroup_chat_created;
+    public Boolean getSupergroupChatCreated() {
+        return supergroupChatCreated;
     }
 
-    public Boolean channelChatCreated() {
-        return channel_chat_created;
+    public Boolean getChannelChatCreated() {
+        return channelChatCreated;
     }
 
-    public Long migrateToChatId() {
-        return migrate_to_chat_id;
+    public Long getMigrateToChatId() {
+        return migrateToChatId;
     }
 
-    public Long migrateFromChatId() {
-        return migrate_from_chat_id;
+    public Long getMigrateFromChatId() {
+        return migrateFromChatId;
     }
 
-    public Message pinnedMessage() {
-        return pinned_message;
+    public Message getPinnedMessage() {
+        return pinnedMessage;
     }
 
-    public Invoice invoice() {
+    public Invoice getInvoice() {
         return invoice;
-    }
-
-    public Event event() {
-        return event;
     }
 
     @Override
@@ -206,21 +240,19 @@ public class Message implements Serializable {
 
         Message message = (Message) o;
 
-        if (message_id != null ? !message_id.equals(message.message_id) : message.message_id != null) return false;
+        if (messageId != null ? !messageId.equals(message.messageId) : message.messageId != null) return false;
         if (from != null ? !from.equals(message.from) : message.from != null) return false;
         if (date != null ? !date.equals(message.date) : message.date != null) return false;
         if (chat != null ? !chat.equals(message.chat) : message.chat != null) return false;
-        if (forward_from != null ? !forward_from.equals(message.forward_from) : message.forward_from != null)
+        if (forwardFrom != null ? !forwardFrom.equals(message.forwardFrom) : message.forwardFrom != null) return false;
+        if (forwardFromChat != null ? !forwardFromChat.equals(message.forwardFromChat) : message.forwardFromChat != null)
             return false;
-        if (forward_from_chat != null ? !forward_from_chat.equals(message.forward_from_chat) : message.forward_from_chat != null)
+        if (forwardFromMessageId != null ? !forwardFromMessageId.equals(message.forwardFromMessageId) : message.forwardFromMessageId != null)
             return false;
-        if (forward_from_message_id != null ? !forward_from_message_id.equals(message.forward_from_message_id) : message.forward_from_message_id != null)
+        if (forwardDate != null ? !forwardDate.equals(message.forwardDate) : message.forwardDate != null) return false;
+        if (replyToMessage != null ? !replyToMessage.equals(message.replyToMessage) : message.replyToMessage != null)
             return false;
-        if (forward_date != null ? !forward_date.equals(message.forward_date) : message.forward_date != null)
-            return false;
-        if (reply_to_message != null ? !reply_to_message.equals(message.reply_to_message) : message.reply_to_message != null)
-            return false;
-        if (edit_date != null ? !edit_date.equals(message.edit_date) : message.edit_date != null) return false;
+        if (editDate != null ? !editDate.equals(message.editDate) : message.editDate != null) return false;
         if (text != null ? !text.equals(message.text) : message.text != null) return false;
         // Probably incorrect - comparing Object[] arrays with Arrays.equals
         if (!Arrays.equals(entities, message.entities)) return false;
@@ -232,51 +264,50 @@ public class Message implements Serializable {
         if (sticker != null ? !sticker.equals(message.sticker) : message.sticker != null) return false;
         if (video != null ? !video.equals(message.video) : message.video != null) return false;
         if (voice != null ? !voice.equals(message.voice) : message.voice != null) return false;
-        if (video_note != null ? !video_note.equals(message.video_note) : message.video_note != null) return false;
+        if (videoNote != null ? !videoNote.equals(message.videoNote) : message.videoNote != null) return false;
         // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        if (!Arrays.equals(new_chat_members, message.new_chat_members)) return false;
+        if (!Arrays.equals(newChatMembers, message.newChatMembers)) return false;
         if (caption != null ? !caption.equals(message.caption) : message.caption != null) return false;
         if (contact != null ? !contact.equals(message.contact) : message.contact != null) return false;
         if (location != null ? !location.equals(message.location) : message.location != null) return false;
         if (venue != null ? !venue.equals(message.venue) : message.venue != null) return false;
-        if (new_chat_member != null ? !new_chat_member.equals(message.new_chat_member) : message.new_chat_member != null)
+        if (newChatMember != null ? !newChatMember.equals(message.newChatMember) : message.newChatMember != null)
             return false;
-        if (left_chat_member != null ? !left_chat_member.equals(message.left_chat_member) : message.left_chat_member != null)
+        if (leftChatMember != null ? !leftChatMember.equals(message.leftChatMember) : message.leftChatMember != null)
             return false;
-        if (new_chat_title != null ? !new_chat_title.equals(message.new_chat_title) : message.new_chat_title != null)
+        if (newChatTitle != null ? !newChatTitle.equals(message.newChatTitle) : message.newChatTitle != null)
             return false;
         // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        if (!Arrays.equals(new_chat_photo, message.new_chat_photo)) return false;
-        if (delete_chat_photo != null ? !delete_chat_photo.equals(message.delete_chat_photo) : message.delete_chat_photo != null)
+        if (!Arrays.equals(newChatPhoto, message.newChatPhoto)) return false;
+        if (deleteChatPhoto != null ? !deleteChatPhoto.equals(message.deleteChatPhoto) : message.deleteChatPhoto != null)
             return false;
-        if (group_chat_created != null ? !group_chat_created.equals(message.group_chat_created) : message.group_chat_created != null)
+        if (groupChatCreated != null ? !groupChatCreated.equals(message.groupChatCreated) : message.groupChatCreated != null)
             return false;
-        if (supergroup_chat_created != null ? !supergroup_chat_created.equals(message.supergroup_chat_created) : message.supergroup_chat_created != null)
+        if (supergroupChatCreated != null ? !supergroupChatCreated.equals(message.supergroupChatCreated) : message.supergroupChatCreated != null)
             return false;
-        if (channel_chat_created != null ? !channel_chat_created.equals(message.channel_chat_created) : message.channel_chat_created != null)
+        if (channelChatCreated != null ? !channelChatCreated.equals(message.channelChatCreated) : message.channelChatCreated != null)
             return false;
-        if (migrate_to_chat_id != null ? !migrate_to_chat_id.equals(message.migrate_to_chat_id) : message.migrate_to_chat_id != null)
+        if (migrateToChatId != null ? !migrateToChatId.equals(message.migrateToChatId) : message.migrateToChatId != null)
             return false;
-        if (migrate_from_chat_id != null ? !migrate_from_chat_id.equals(message.migrate_from_chat_id) : message.migrate_from_chat_id != null)
+        if (migrateFromChatId != null ? !migrateFromChatId.equals(message.migrateFromChatId) : message.migrateFromChatId != null)
             return false;
-        if (pinned_message != null ? !pinned_message.equals(message.pinned_message) : message.pinned_message != null)
+        if (pinnedMessage != null ? !pinnedMessage.equals(message.pinnedMessage) : message.pinnedMessage != null)
             return false;
-        if (invoice != null ? !invoice.equals(message.invoice) : message.invoice != null) return false;
-        return event != null ? event.equals(message.event) : message.event == null;
+        return invoice != null ? invoice.equals(message.invoice) : message.invoice == null;
     }
 
     @Override
     public int hashCode() {
-        int result = message_id != null ? message_id.hashCode() : 0;
+        int result = messageId != null ? messageId.hashCode() : 0;
         result = 31 * result + (from != null ? from.hashCode() : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (chat != null ? chat.hashCode() : 0);
-        result = 31 * result + (forward_from != null ? forward_from.hashCode() : 0);
-        result = 31 * result + (forward_from_chat != null ? forward_from_chat.hashCode() : 0);
-        result = 31 * result + (forward_from_message_id != null ? forward_from_message_id.hashCode() : 0);
-        result = 31 * result + (forward_date != null ? forward_date.hashCode() : 0);
-        result = 31 * result + (reply_to_message != null ? reply_to_message.hashCode() : 0);
-        result = 31 * result + (edit_date != null ? edit_date.hashCode() : 0);
+        result = 31 * result + (forwardFrom != null ? forwardFrom.hashCode() : 0);
+        result = 31 * result + (forwardFromChat != null ? forwardFromChat.hashCode() : 0);
+        result = 31 * result + (forwardFromMessageId != null ? forwardFromMessageId.hashCode() : 0);
+        result = 31 * result + (forwardDate != null ? forwardDate.hashCode() : 0);
+        result = 31 * result + (replyToMessage != null ? replyToMessage.hashCode() : 0);
+        result = 31 * result + (editDate != null ? editDate.hashCode() : 0);
         result = 31 * result + (text != null ? text.hashCode() : 0);
         result = 31 * result + Arrays.hashCode(entities);
         result = 31 * result + (audio != null ? audio.hashCode() : 0);
@@ -286,41 +317,40 @@ public class Message implements Serializable {
         result = 31 * result + (sticker != null ? sticker.hashCode() : 0);
         result = 31 * result + (video != null ? video.hashCode() : 0);
         result = 31 * result + (voice != null ? voice.hashCode() : 0);
-        result = 31 * result + (video_note != null ? video_note.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(new_chat_members);
+        result = 31 * result + (videoNote != null ? videoNote.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(newChatMembers);
         result = 31 * result + (caption != null ? caption.hashCode() : 0);
         result = 31 * result + (contact != null ? contact.hashCode() : 0);
         result = 31 * result + (location != null ? location.hashCode() : 0);
         result = 31 * result + (venue != null ? venue.hashCode() : 0);
-        result = 31 * result + (new_chat_member != null ? new_chat_member.hashCode() : 0);
-        result = 31 * result + (left_chat_member != null ? left_chat_member.hashCode() : 0);
-        result = 31 * result + (new_chat_title != null ? new_chat_title.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(new_chat_photo);
-        result = 31 * result + (delete_chat_photo != null ? delete_chat_photo.hashCode() : 0);
-        result = 31 * result + (group_chat_created != null ? group_chat_created.hashCode() : 0);
-        result = 31 * result + (supergroup_chat_created != null ? supergroup_chat_created.hashCode() : 0);
-        result = 31 * result + (channel_chat_created != null ? channel_chat_created.hashCode() : 0);
-        result = 31 * result + (migrate_to_chat_id != null ? migrate_to_chat_id.hashCode() : 0);
-        result = 31 * result + (migrate_from_chat_id != null ? migrate_from_chat_id.hashCode() : 0);
-        result = 31 * result + (pinned_message != null ? pinned_message.hashCode() : 0);
+        result = 31 * result + (newChatMember != null ? newChatMember.hashCode() : 0);
+        result = 31 * result + (leftChatMember != null ? leftChatMember.hashCode() : 0);
+        result = 31 * result + (newChatTitle != null ? newChatTitle.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(newChatPhoto);
+        result = 31 * result + (deleteChatPhoto != null ? deleteChatPhoto.hashCode() : 0);
+        result = 31 * result + (groupChatCreated != null ? groupChatCreated.hashCode() : 0);
+        result = 31 * result + (supergroupChatCreated != null ? supergroupChatCreated.hashCode() : 0);
+        result = 31 * result + (channelChatCreated != null ? channelChatCreated.hashCode() : 0);
+        result = 31 * result + (migrateToChatId != null ? migrateToChatId.hashCode() : 0);
+        result = 31 * result + (migrateFromChatId != null ? migrateFromChatId.hashCode() : 0);
+        result = 31 * result + (pinnedMessage != null ? pinnedMessage.hashCode() : 0);
         result = 31 * result + (invoice != null ? invoice.hashCode() : 0);
-        result = 31 * result + (event != null ? event.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Message{" +
-                "message_id=" + message_id +
+                "messageId=" + messageId +
                 ", from=" + from +
                 ", date=" + date +
                 ", chat=" + chat +
-                ", forward_from=" + forward_from +
-                ", forward_from_chat=" + forward_from_chat +
-                ", forward_from_message_id=" + forward_from_message_id +
-                ", forward_date=" + forward_date +
-                ", reply_to_message=" + reply_to_message +
-                ", edit_date=" + edit_date +
+                ", forwardFrom=" + forwardFrom +
+                ", forwardFromChat=" + forwardFromChat +
+                ", forwardFromMessageId=" + forwardFromMessageId +
+                ", forwardDate=" + forwardDate +
+                ", replyToMessage=" + replyToMessage +
+                ", editDate=" + editDate +
                 ", text='" + text + '\'' +
                 ", entities=" + Arrays.toString(entities) +
                 ", audio=" + audio +
@@ -330,25 +360,24 @@ public class Message implements Serializable {
                 ", sticker=" + sticker +
                 ", video=" + video +
                 ", voice=" + voice +
-                ", video_note=" + video_note +
-                ", new_chat_members=" + Arrays.toString(new_chat_members) +
+                ", videoNote=" + videoNote +
+                ", newChatMembers=" + Arrays.toString(newChatMembers) +
                 ", caption='" + caption + '\'' +
                 ", contact=" + contact +
                 ", location=" + location +
                 ", venue=" + venue +
-                ", new_chat_member=" + new_chat_member +
-                ", left_chat_member=" + left_chat_member +
-                ", new_chat_title='" + new_chat_title + '\'' +
-                ", new_chat_photo=" + Arrays.toString(new_chat_photo) +
-                ", delete_chat_photo=" + delete_chat_photo +
-                ", group_chat_created=" + group_chat_created +
-                ", supergroup_chat_created=" + supergroup_chat_created +
-                ", channel_chat_created=" + channel_chat_created +
-                ", migrate_to_chat_id=" + migrate_to_chat_id +
-                ", migrate_from_chat_id=" + migrate_from_chat_id +
-                ", pinned_message=" + pinned_message +
+                ", newChatMember=" + newChatMember +
+                ", leftChatMember=" + leftChatMember +
+                ", newChatTitle='" + newChatTitle + '\'' +
+                ", newChatPhoto=" + Arrays.toString(newChatPhoto) +
+                ", deleteChatPhoto=" + deleteChatPhoto +
+                ", groupChatCreated=" + groupChatCreated +
+                ", supergroupChatCreated=" + supergroupChatCreated +
+                ", channelChatCreated=" + channelChatCreated +
+                ", migrateToChatId=" + migrateToChatId +
+                ", migrateFromChatId=" + migrateFromChatId +
+                ", pinnedMessage=" + pinnedMessage +
                 ", invoice=" + invoice +
-                ", event=" + event +
                 '}';
     }
 }

@@ -7,10 +7,11 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class MessageEntity implements Serializable {
-    private final static long serialVersionUID = 0L;
+
+    private static final long serialVersionUID = -8847494493425597858L;
 
     public enum Type {
-        mention, hashtag, bot_command, url, email, bold, italic, code, pre, text_link, text_mention
+        mention, hashtag, botCommand, url, email, bold, italic, code, pre, textLink, textMention
     }
 
     private Type type;
@@ -19,23 +20,27 @@ public class MessageEntity implements Serializable {
     private String url;
     private User user;
 
-    public Type type() {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Type getType() {
         return type;
     }
 
-    public Integer offset() {
+    public Integer getOffset() {
         return offset;
     }
 
-    public Integer length() {
+    public Integer getLength() {
         return length;
     }
 
-    public String url() {
+    public String getUrl() {
         return url;
     }
 
-    public User user() {
+    public User getUser() {
         return user;
     }
 
@@ -51,7 +56,6 @@ public class MessageEntity implements Serializable {
         if (length != null ? !length.equals(that.length) : that.length != null) return false;
         if (url != null ? !url.equals(that.url) : that.url != null) return false;
         return user != null ? user.equals(that.user) : that.user == null;
-
     }
 
     @Override

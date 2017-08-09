@@ -7,27 +7,35 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class Contact implements Serializable {
-    private final static long serialVersionUID = 0L;
 
-    private String phone_number;
-    private String first_name;
-    private String last_name;
-    private Integer user_id;
+    private static final long serialVersionUID = 7191801611641193262L;
 
-    public String phoneNumber() {
-        return phone_number;
+    private String phoneNumber;
+
+    private String firstName;
+
+    private String lastName;
+
+    private Integer userId;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public String firstName() {
-        return first_name;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public String lastName() {
-        return last_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public Integer userId() {
-        return user_id;
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Integer getUserId() {
+        return userId;
     }
 
     @Override
@@ -37,25 +45,28 @@ public class Contact implements Serializable {
 
         Contact contact = (Contact) o;
 
-        if (phone_number != null ? !phone_number.equals(contact.phone_number) : contact.phone_number != null)
-            return false;
-        if (first_name != null ? !first_name.equals(contact.first_name) : contact.first_name != null) return false;
-        if (last_name != null ? !last_name.equals(contact.last_name) : contact.last_name != null) return false;
-        return user_id != null ? user_id.equals(contact.user_id) : contact.user_id == null;
+        if (phoneNumber != null ? !phoneNumber.equals(contact.phoneNumber) : contact.phoneNumber != null) return false;
+        if (firstName != null ? !firstName.equals(contact.firstName) : contact.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(contact.lastName) : contact.lastName != null) return false;
+        return userId != null ? userId.equals(contact.userId) : contact.userId == null;
     }
 
     @Override
     public int hashCode() {
-        return phone_number != null ? phone_number.hashCode() : 0;
+        int result = phoneNumber != null ? phoneNumber.hashCode() : 0;
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (userId != null ? userId.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "Contact{" +
-                "phone_number='" + phone_number + '\'' +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", user_id=" + user_id +
+                "phoneNumber='" + phoneNumber + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userId=" + userId +
                 '}';
     }
 }

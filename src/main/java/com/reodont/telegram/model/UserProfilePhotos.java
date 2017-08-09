@@ -8,16 +8,22 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 public class UserProfilePhotos implements Serializable {
-    private final static long serialVersionUID = 0L;
 
-    private Integer total_count;
+    private static final long serialVersionUID = 5055457597827040861L;
+
+    private Integer totalCount;
+
     private PhotoSize[][] photos;
 
-    public Integer totalCount() {
-        return total_count;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public PhotoSize[][] photos() {
+    public Integer getTotalCount() {
+        return totalCount;
+    }
+
+    public PhotoSize[][] getPhotos() {
         return photos;
     }
 
@@ -28,13 +34,13 @@ public class UserProfilePhotos implements Serializable {
 
         UserProfilePhotos that = (UserProfilePhotos) o;
 
-        if (total_count != null ? !total_count.equals(that.total_count) : that.total_count != null) return false;
+        if (totalCount != null ? !totalCount.equals(that.totalCount) : that.totalCount != null) return false;
         return Arrays.deepEquals(photos, that.photos);
     }
 
     @Override
     public int hashCode() {
-        int result = total_count != null ? total_count.hashCode() : 0;
+        int result = totalCount != null ? totalCount.hashCode() : 0;
         result = 31 * result + Arrays.deepHashCode(photos);
         return result;
     }
@@ -42,8 +48,8 @@ public class UserProfilePhotos implements Serializable {
     @Override
     public String toString() {
         return "UserProfilePhotos{" +
-                "total_count=" + total_count +
-                ", photos=" + Arrays.deepToString(photos) +
+                "totalCount=" + totalCount +
+                ", photos=" + Arrays.toString(photos) +
                 '}';
     }
 }

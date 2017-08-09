@@ -7,27 +7,35 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class Voice implements Serializable {
-    private final static long serialVersionUID = 0L;
 
-    private String file_id;
+    private static final long serialVersionUID = 8150402198580726783L;
+
+    private String fileId;
+
     private Integer duration;
-    private String mime_type;
-    private Integer file_size;
 
-    public String fileId() {
-        return file_id;
+    private String mimeType;
+
+    private Integer fileSize;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public Integer duration() {
+    public String getFileId() {
+        return fileId;
+    }
+
+    public Integer getDuration() {
         return duration;
     }
 
-    public String mimeType() {
-        return mime_type;
+    public String getMimeType() {
+        return mimeType;
     }
 
-    public Integer fileSize() {
-        return file_size;
+    public Integer getFileSize() {
+        return fileSize;
     }
 
     @Override
@@ -37,24 +45,28 @@ public class Voice implements Serializable {
 
         Voice voice = (Voice) o;
 
-        if (file_id != null ? !file_id.equals(voice.file_id) : voice.file_id != null) return false;
+        if (fileId != null ? !fileId.equals(voice.fileId) : voice.fileId != null) return false;
         if (duration != null ? !duration.equals(voice.duration) : voice.duration != null) return false;
-        if (mime_type != null ? !mime_type.equals(voice.mime_type) : voice.mime_type != null) return false;
-        return file_size != null ? file_size.equals(voice.file_size) : voice.file_size == null;
+        if (mimeType != null ? !mimeType.equals(voice.mimeType) : voice.mimeType != null) return false;
+        return fileSize != null ? fileSize.equals(voice.fileSize) : voice.fileSize == null;
     }
 
     @Override
     public int hashCode() {
-        return file_id != null ? file_id.hashCode() : 0;
+        int result = fileId != null ? fileId.hashCode() : 0;
+        result = 31 * result + (duration != null ? duration.hashCode() : 0);
+        result = 31 * result + (mimeType != null ? mimeType.hashCode() : 0);
+        result = 31 * result + (fileSize != null ? fileSize.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "Voice{" +
-                "file_id='" + file_id + '\'' +
+                "fileId='" + fileId + '\'' +
                 ", duration=" + duration +
-                ", mime_type='" + mime_type + '\'' +
-                ", file_size=" + file_size +
+                ", mimeType='" + mimeType + '\'' +
+                ", fileSize=" + fileSize +
                 '}';
     }
 }

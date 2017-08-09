@@ -7,31 +7,40 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class ChosenInlineResult implements Serializable {
-    private final static long serialVersionUID = 0L;
 
-    private String result_id;
+    private static final long serialVersionUID = 1320768760873415945L;
+
+    private String resultId;
+
     private User from;
+
     private Location location;
-    private String inline_message_id;
+
+    private String inlineMessageId;
+
     private String query;
 
-    public String resultId() {
-        return result_id;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public User from() {
+    public String getResultId() {
+        return resultId;
+    }
+
+    public User getFrom() {
         return from;
     }
 
-    public Location location() {
+    public Location getLocation() {
         return location;
     }
 
-    public String inlineMessageId() {
-        return inline_message_id;
+    public String getInlineMessageId() {
+        return inlineMessageId;
     }
 
-    public String query() {
+    public String getQuery() {
         return query;
     }
 
@@ -42,27 +51,31 @@ public class ChosenInlineResult implements Serializable {
 
         ChosenInlineResult that = (ChosenInlineResult) o;
 
-        if (result_id != null ? !result_id.equals(that.result_id) : that.result_id != null) return false;
+        if (resultId != null ? !resultId.equals(that.resultId) : that.resultId != null) return false;
         if (from != null ? !from.equals(that.from) : that.from != null) return false;
         if (location != null ? !location.equals(that.location) : that.location != null) return false;
-        if (inline_message_id != null ? !inline_message_id.equals(that.inline_message_id) : that.inline_message_id != null)
+        if (inlineMessageId != null ? !inlineMessageId.equals(that.inlineMessageId) : that.inlineMessageId != null)
             return false;
         return query != null ? query.equals(that.query) : that.query == null;
-
     }
 
     @Override
     public int hashCode() {
-        return result_id != null ? result_id.hashCode() : 0;
+        int result = resultId != null ? resultId.hashCode() : 0;
+        result = 31 * result + (from != null ? from.hashCode() : 0);
+        result = 31 * result + (location != null ? location.hashCode() : 0);
+        result = 31 * result + (inlineMessageId != null ? inlineMessageId.hashCode() : 0);
+        result = 31 * result + (query != null ? query.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "ChosenInlineResult{" +
-                "result_id='" + result_id + '\'' +
+                "resultId='" + resultId + '\'' +
                 ", from=" + from +
                 ", location=" + location +
-                ", inline_message_id='" + inline_message_id + '\'' +
+                ", inlineMessageId='" + inlineMessageId + '\'' +
                 ", query='" + query + '\'' +
                 '}';
     }

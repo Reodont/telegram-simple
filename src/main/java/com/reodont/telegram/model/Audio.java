@@ -8,37 +8,48 @@ import java.io.Serializable;
 
 
 public class Audio implements Serializable {
-    private final static long serialVersionUID = 0L;
 
-    private String file_id;
+    private static final long serialVersionUID = -5427636082374475056L;
+
+    private String fileId;
+
     private Integer duration;
-    private String performer;
-    private String title;
-    private String mime_type;
-    private Integer file_size;
 
-    public String fileId() {
-        return file_id;
+    private String performer;
+
+    private String title;
+
+    private String mimeType;
+
+    private Integer fileSize;
+
+    public static long getSerialVersionUID() {
+
+        return serialVersionUID;
     }
 
-    public Integer duration() {
+    public String getFileId() {
+        return fileId;
+    }
+
+    public Integer getDuration() {
         return duration;
     }
 
-    public String performer() {
+    public String getPerformer() {
         return performer;
     }
 
-    public String title() {
+    public String getTitle() {
         return title;
     }
 
-    public String mimeType() {
-        return mime_type;
+    public String getMimeType() {
+        return mimeType;
     }
 
-    public Integer fileSize() {
-        return file_size;
+    public Integer getFileSize() {
+        return fileSize;
     }
 
     @Override
@@ -48,28 +59,34 @@ public class Audio implements Serializable {
 
         Audio audio = (Audio) o;
 
-        if (file_id != null ? !file_id.equals(audio.file_id) : audio.file_id != null) return false;
+        if (fileId != null ? !fileId.equals(audio.fileId) : audio.fileId != null) return false;
         if (duration != null ? !duration.equals(audio.duration) : audio.duration != null) return false;
         if (performer != null ? !performer.equals(audio.performer) : audio.performer != null) return false;
         if (title != null ? !title.equals(audio.title) : audio.title != null) return false;
-        if (mime_type != null ? !mime_type.equals(audio.mime_type) : audio.mime_type != null) return false;
-        return file_size != null ? file_size.equals(audio.file_size) : audio.file_size == null;
+        if (mimeType != null ? !mimeType.equals(audio.mimeType) : audio.mimeType != null) return false;
+        return fileSize != null ? fileSize.equals(audio.fileSize) : audio.fileSize == null;
     }
 
     @Override
     public int hashCode() {
-        return file_id != null ? file_id.hashCode() : 0;
+        int result = fileId != null ? fileId.hashCode() : 0;
+        result = 31 * result + (duration != null ? duration.hashCode() : 0);
+        result = 31 * result + (performer != null ? performer.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (mimeType != null ? mimeType.hashCode() : 0);
+        result = 31 * result + (fileSize != null ? fileSize.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "Audio{" +
-                "file_id='" + file_id + '\'' +
+                "fileId='" + fileId + '\'' +
                 ", duration=" + duration +
                 ", performer='" + performer + '\'' +
                 ", title='" + title + '\'' +
-                ", mime_type='" + mime_type + '\'' +
-                ", file_size=" + file_size +
+                ", mimeType='" + mimeType + '\'' +
+                ", fileSize=" + fileSize +
                 '}';
     }
 }

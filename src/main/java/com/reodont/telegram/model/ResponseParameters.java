@@ -8,18 +8,22 @@ import java.io.Serializable;
 
 public class ResponseParameters implements Serializable {
 
-    private final static long serialVersionUID = 0L;
+    private static final long serialVersionUID = -8984864567574867667L;
 
-    private Long migrate_to_chat_id;
+    private Long migrateToChatId;
 
-    private Integer retry_after;
+    private Integer retryAfter;
 
-    public Long migrateToChatId() {
-        return migrate_to_chat_id;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public Integer retryAfter() {
-        return retry_after;
+    public Long getMigrateToChatId() {
+        return migrateToChatId;
+    }
+
+    public Integer getRetryAfter() {
+        return retryAfter;
     }
 
     @Override
@@ -29,23 +33,23 @@ public class ResponseParameters implements Serializable {
 
         ResponseParameters that = (ResponseParameters) o;
 
-        if (migrate_to_chat_id != null ? !migrate_to_chat_id.equals(that.migrate_to_chat_id) : that.migrate_to_chat_id != null)
+        if (migrateToChatId != null ? !migrateToChatId.equals(that.migrateToChatId) : that.migrateToChatId != null)
             return false;
-        return retry_after != null ? retry_after.equals(that.retry_after) : that.retry_after == null;
+        return retryAfter != null ? retryAfter.equals(that.retryAfter) : that.retryAfter == null;
     }
 
     @Override
     public int hashCode() {
-        int result = migrate_to_chat_id != null ? migrate_to_chat_id.hashCode() : 0;
-        result = 31 * result + (retry_after != null ? retry_after.hashCode() : 0);
+        int result = migrateToChatId != null ? migrateToChatId.hashCode() : 0;
+        result = 31 * result + (retryAfter != null ? retryAfter.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "ResponseParameters{" +
-                "migrate_to_chat_id=" + migrate_to_chat_id +
-                ", retry_after=" + retry_after +
+                "migrateToChatId=" + migrateToChatId +
+                ", retryAfter=" + retryAfter +
                 '}';
     }
 }

@@ -7,17 +7,23 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class ChatPhoto implements Serializable {
-    private final static long serialVersionUID = 0L;
 
-    private String small_file_id;
-    private String big_file_id;
+    private static final long serialVersionUID = -4933399404600364195L;
 
-    public String smallFileId() {
-        return small_file_id;
+    private String smallFileId;
+
+    private String bigFileId;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public String bigFileId() {
-        return big_file_id;
+    public String getSmallFileId() {
+        return smallFileId;
+    }
+
+    public String getBigFileId() {
+        return bigFileId;
     }
 
     @Override
@@ -27,23 +33,23 @@ public class ChatPhoto implements Serializable {
 
         ChatPhoto chatPhoto = (ChatPhoto) o;
 
-        if (small_file_id != null ? !small_file_id.equals(chatPhoto.small_file_id) : chatPhoto.small_file_id != null)
+        if (smallFileId != null ? !smallFileId.equals(chatPhoto.smallFileId) : chatPhoto.smallFileId != null)
             return false;
-        return big_file_id != null ? big_file_id.equals(chatPhoto.big_file_id) : chatPhoto.big_file_id == null;
+        return bigFileId != null ? bigFileId.equals(chatPhoto.bigFileId) : chatPhoto.bigFileId == null;
     }
 
     @Override
     public int hashCode() {
-        int result = small_file_id != null ? small_file_id.hashCode() : 0;
-        result = 31 * result + (big_file_id != null ? big_file_id.hashCode() : 0);
+        int result = smallFileId != null ? smallFileId.hashCode() : 0;
+        result = 31 * result + (bigFileId != null ? bigFileId.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "ChatPhoto{" +
-                "small_file_id='" + small_file_id + '\'' +
-                ", big_file_id='" + big_file_id + '\'' +
+                "smallFileId='" + smallFileId + '\'' +
+                ", bigFileId='" + bigFileId + '\'' +
                 '}';
     }
 }

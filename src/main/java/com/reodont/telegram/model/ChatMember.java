@@ -7,92 +7,111 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class ChatMember implements Serializable {
-    private final static long serialVersionUID = 0L;
+
+    private static final long serialVersionUID = 1541828537792400941L;
 
     public enum Status {
         creator, administrator, member, restricted, left, kicked
     }
 
     private User user;
+
     private Status status;
 
-    private Integer until_date;
-    private Boolean can_be_edited;
-    private Boolean can_change_info;
-    private Boolean can_post_messages;
-    private Boolean can_edit_messages;
-    private Boolean can_delete_messages;
-    private Boolean can_invite_users;
-    private Boolean can_restrict_members;
-    private Boolean can_pin_messages;
-    private Boolean can_promote_members;
-    private Boolean can_send_messages;
-    private Boolean can_send_media_messages;
-    private Boolean can_send_other_messages;
-    private Boolean can_add_web_page_previews;
+    private Integer untilDate;
 
-    public User user() {
+    private Boolean canBeEdited;
+
+    private Boolean canChangeInfo;
+
+    private Boolean canPostMessages;
+
+    private Boolean canEditMessages;
+
+    private Boolean canDeleteMessages;
+
+    private Boolean canInviteUsers;
+
+    private Boolean canRestrictMembers;
+
+    private Boolean canPinMessages;
+
+    private Boolean canPromoteMembers;
+
+    private Boolean canSendMessages;
+
+    private Boolean canSendMediaMessages;
+
+    private Boolean canSendOtherMessages;
+
+    private Boolean canAddWebPagePreviews;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public User getUser() {
         return user;
     }
 
-    public Status status() {
+    public Status getStatus() {
         return status;
     }
 
-    public Integer untilDate() {
-        return until_date;
+    public Integer getUntilDate() {
+        return untilDate;
     }
 
-    public Boolean canBeEdited() {
-        return can_be_edited;
+    public Boolean getCanBeEdited() {
+        return canBeEdited;
     }
 
-    public Boolean canChangeInfo() {
-        return can_change_info;
+    public Boolean getCanChangeInfo() {
+        return canChangeInfo;
     }
 
-    public Boolean canPostMessages() {
-        return can_post_messages;
+    public Boolean getCanPostMessages() {
+        return canPostMessages;
     }
 
-    public Boolean canEditMessages() {
-        return can_edit_messages;
+    public Boolean getCanEditMessages() {
+        return canEditMessages;
     }
 
-    public Boolean canDeleteMessages() {
-        return can_delete_messages;
+    public Boolean getCanDeleteMessages() {
+        return canDeleteMessages;
     }
 
-    public Boolean canInviteUsers() {
-        return can_invite_users;
+    public Boolean getCanInviteUsers() {
+        return canInviteUsers;
     }
 
-    public Boolean canRestrictMembers() {
-        return can_restrict_members;
+    public Boolean getCanRestrictMembers() {
+        return canRestrictMembers;
     }
 
-    public Boolean canPinMessages() {
-        return can_pin_messages;
+    public Boolean getCanPinMessages() {
+        return canPinMessages;
     }
 
-    public Boolean canPromoteMembers() {
-        return can_promote_members;
+    public Boolean getCanPromoteMembers() {
+        return canPromoteMembers;
     }
 
-    public Boolean canSendMessages() {
-        return can_send_messages;
+    public Boolean getCanSendMessages() {
+        return canSendMessages;
     }
 
-    public Boolean canSendMediaMessages() {
-        return can_send_media_messages;
+    public Boolean getCanSendMediaMessages() {
+        return canSendMediaMessages;
     }
 
-    public Boolean canSendOtherMessages() {
-        return can_send_other_messages;
+    public Boolean getCanSendOtherMessages() {
+        return canSendOtherMessages;
     }
 
-    public Boolean canAddWebPagePreviews() {
-        return can_add_web_page_previews;
+    public Boolean getCanAddWebPagePreviews() {
+        return canAddWebPagePreviews;
     }
 
     @Override
@@ -104,52 +123,51 @@ public class ChatMember implements Serializable {
 
         if (user != null ? !user.equals(that.user) : that.user != null) return false;
         if (status != that.status) return false;
-        if (until_date != null ? !until_date.equals(that.until_date) : that.until_date != null) return false;
-        if (can_be_edited != null ? !can_be_edited.equals(that.can_be_edited) : that.can_be_edited != null)
+        if (untilDate != null ? !untilDate.equals(that.untilDate) : that.untilDate != null) return false;
+        if (canBeEdited != null ? !canBeEdited.equals(that.canBeEdited) : that.canBeEdited != null) return false;
+        if (canChangeInfo != null ? !canChangeInfo.equals(that.canChangeInfo) : that.canChangeInfo != null)
             return false;
-        if (can_change_info != null ? !can_change_info.equals(that.can_change_info) : that.can_change_info != null)
+        if (canPostMessages != null ? !canPostMessages.equals(that.canPostMessages) : that.canPostMessages != null)
             return false;
-        if (can_post_messages != null ? !can_post_messages.equals(that.can_post_messages) : that.can_post_messages != null)
+        if (canEditMessages != null ? !canEditMessages.equals(that.canEditMessages) : that.canEditMessages != null)
             return false;
-        if (can_edit_messages != null ? !can_edit_messages.equals(that.can_edit_messages) : that.can_edit_messages != null)
+        if (canDeleteMessages != null ? !canDeleteMessages.equals(that.canDeleteMessages) : that.canDeleteMessages != null)
             return false;
-        if (can_delete_messages != null ? !can_delete_messages.equals(that.can_delete_messages) : that.can_delete_messages != null)
+        if (canInviteUsers != null ? !canInviteUsers.equals(that.canInviteUsers) : that.canInviteUsers != null)
             return false;
-        if (can_invite_users != null ? !can_invite_users.equals(that.can_invite_users) : that.can_invite_users != null)
+        if (canRestrictMembers != null ? !canRestrictMembers.equals(that.canRestrictMembers) : that.canRestrictMembers != null)
             return false;
-        if (can_restrict_members != null ? !can_restrict_members.equals(that.can_restrict_members) : that.can_restrict_members != null)
+        if (canPinMessages != null ? !canPinMessages.equals(that.canPinMessages) : that.canPinMessages != null)
             return false;
-        if (can_pin_messages != null ? !can_pin_messages.equals(that.can_pin_messages) : that.can_pin_messages != null)
+        if (canPromoteMembers != null ? !canPromoteMembers.equals(that.canPromoteMembers) : that.canPromoteMembers != null)
             return false;
-        if (can_promote_members != null ? !can_promote_members.equals(that.can_promote_members) : that.can_promote_members != null)
+        if (canSendMessages != null ? !canSendMessages.equals(that.canSendMessages) : that.canSendMessages != null)
             return false;
-        if (can_send_messages != null ? !can_send_messages.equals(that.can_send_messages) : that.can_send_messages != null)
+        if (canSendMediaMessages != null ? !canSendMediaMessages.equals(that.canSendMediaMessages) : that.canSendMediaMessages != null)
             return false;
-        if (can_send_media_messages != null ? !can_send_media_messages.equals(that.can_send_media_messages) : that.can_send_media_messages != null)
+        if (canSendOtherMessages != null ? !canSendOtherMessages.equals(that.canSendOtherMessages) : that.canSendOtherMessages != null)
             return false;
-        if (can_send_other_messages != null ? !can_send_other_messages.equals(that.can_send_other_messages) : that.can_send_other_messages != null)
-            return false;
-        return can_add_web_page_previews != null ? can_add_web_page_previews.equals(that.can_add_web_page_previews) : that.can_add_web_page_previews == null;
+        return canAddWebPagePreviews != null ? canAddWebPagePreviews.equals(that.canAddWebPagePreviews) : that.canAddWebPagePreviews == null;
     }
 
     @Override
     public int hashCode() {
         int result = user != null ? user.hashCode() : 0;
         result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (until_date != null ? until_date.hashCode() : 0);
-        result = 31 * result + (can_be_edited != null ? can_be_edited.hashCode() : 0);
-        result = 31 * result + (can_change_info != null ? can_change_info.hashCode() : 0);
-        result = 31 * result + (can_post_messages != null ? can_post_messages.hashCode() : 0);
-        result = 31 * result + (can_edit_messages != null ? can_edit_messages.hashCode() : 0);
-        result = 31 * result + (can_delete_messages != null ? can_delete_messages.hashCode() : 0);
-        result = 31 * result + (can_invite_users != null ? can_invite_users.hashCode() : 0);
-        result = 31 * result + (can_restrict_members != null ? can_restrict_members.hashCode() : 0);
-        result = 31 * result + (can_pin_messages != null ? can_pin_messages.hashCode() : 0);
-        result = 31 * result + (can_promote_members != null ? can_promote_members.hashCode() : 0);
-        result = 31 * result + (can_send_messages != null ? can_send_messages.hashCode() : 0);
-        result = 31 * result + (can_send_media_messages != null ? can_send_media_messages.hashCode() : 0);
-        result = 31 * result + (can_send_other_messages != null ? can_send_other_messages.hashCode() : 0);
-        result = 31 * result + (can_add_web_page_previews != null ? can_add_web_page_previews.hashCode() : 0);
+        result = 31 * result + (untilDate != null ? untilDate.hashCode() : 0);
+        result = 31 * result + (canBeEdited != null ? canBeEdited.hashCode() : 0);
+        result = 31 * result + (canChangeInfo != null ? canChangeInfo.hashCode() : 0);
+        result = 31 * result + (canPostMessages != null ? canPostMessages.hashCode() : 0);
+        result = 31 * result + (canEditMessages != null ? canEditMessages.hashCode() : 0);
+        result = 31 * result + (canDeleteMessages != null ? canDeleteMessages.hashCode() : 0);
+        result = 31 * result + (canInviteUsers != null ? canInviteUsers.hashCode() : 0);
+        result = 31 * result + (canRestrictMembers != null ? canRestrictMembers.hashCode() : 0);
+        result = 31 * result + (canPinMessages != null ? canPinMessages.hashCode() : 0);
+        result = 31 * result + (canPromoteMembers != null ? canPromoteMembers.hashCode() : 0);
+        result = 31 * result + (canSendMessages != null ? canSendMessages.hashCode() : 0);
+        result = 31 * result + (canSendMediaMessages != null ? canSendMediaMessages.hashCode() : 0);
+        result = 31 * result + (canSendOtherMessages != null ? canSendOtherMessages.hashCode() : 0);
+        result = 31 * result + (canAddWebPagePreviews != null ? canAddWebPagePreviews.hashCode() : 0);
         return result;
     }
 
@@ -158,20 +176,20 @@ public class ChatMember implements Serializable {
         return "ChatMember{" +
                 "user=" + user +
                 ", status=" + status +
-                ", until_date=" + until_date +
-                ", can_be_edited=" + can_be_edited +
-                ", can_change_info=" + can_change_info +
-                ", can_post_messages=" + can_post_messages +
-                ", can_edit_messages=" + can_edit_messages +
-                ", can_delete_messages=" + can_delete_messages +
-                ", can_invite_users=" + can_invite_users +
-                ", can_restrict_members=" + can_restrict_members +
-                ", can_pin_messages=" + can_pin_messages +
-                ", can_promote_members=" + can_promote_members +
-                ", can_send_messages=" + can_send_messages +
-                ", can_send_media_messages=" + can_send_media_messages +
-                ", can_send_other_messages=" + can_send_other_messages +
-                ", can_add_web_page_previews=" + can_add_web_page_previews +
+                ", untilDate=" + untilDate +
+                ", canBeEdited=" + canBeEdited +
+                ", canChangeInfo=" + canChangeInfo +
+                ", canPostMessages=" + canPostMessages +
+                ", canEditMessages=" + canEditMessages +
+                ", canDeleteMessages=" + canDeleteMessages +
+                ", canInviteUsers=" + canInviteUsers +
+                ", canRestrictMembers=" + canRestrictMembers +
+                ", canPinMessages=" + canPinMessages +
+                ", canPromoteMembers=" + canPromoteMembers +
+                ", canSendMessages=" + canSendMessages +
+                ", canSendMediaMessages=" + canSendMediaMessages +
+                ", canSendOtherMessages=" + canSendOtherMessages +
+                ", canAddWebPagePreviews=" + canAddWebPagePreviews +
                 '}';
     }
 }

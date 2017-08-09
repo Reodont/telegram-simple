@@ -7,28 +7,40 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class Invoice implements Serializable {
-    private final static long serialVersionUID = 0L;
 
-    private String title, description, start_parameter, currency;
+    private static final long serialVersionUID = -5037657613180652391L;
+
+    private String title;
+
+    private String description;
+
+    private String start_parameter;
+
+    private String currency;
+
     private Integer total_amount;
 
-    public String title() {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getTitle() {
         return title;
     }
 
-    public String description() {
+    public String getDescription() {
         return description;
     }
 
-    public String startParameter() {
+    public String getStart_parameter() {
         return start_parameter;
     }
 
-    public String currency() {
+    public String getCurrency() {
         return currency;
     }
 
-    public Integer totalAmount() {
+    public Integer getTotal_amount() {
         return total_amount;
     }
 

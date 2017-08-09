@@ -7,21 +7,28 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class GameHighScore implements Serializable {
-    private final static long serialVersionUID = 0L;
+
+    private static final long serialVersionUID = 7908948706064539837L;
 
     private Integer position;
+
     private User user;
+
     private Integer score;
 
-    public Integer position() {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Integer getPosition() {
         return position;
     }
 
-    public User user() {
+    public User getUser() {
         return user;
     }
 
-    public Integer score() {
+    public Integer getScore() {
         return score;
     }
 

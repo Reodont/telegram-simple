@@ -9,7 +9,9 @@ import com.google.gson.Gson;
 import java.io.Serializable;
 
 public class MaskPosition implements Serializable {
-    private final static long serialVersionUID = 0L;
+
+    private static final long serialVersionUID = 4450829618051062081L;
+
     private final static Gson gson = new Gson();
 
     public enum Point {
@@ -17,7 +19,11 @@ public class MaskPosition implements Serializable {
     }
 
     private String point;
-    private Float x_shift, y_shift;
+
+    private Float xShift;
+
+    private Float yShift;
+
     private Float scale;
 
     public MaskPosition() {
@@ -29,24 +35,24 @@ public class MaskPosition implements Serializable {
 
     public MaskPosition(String point, Float xShift, Float yShift, Float scale) {
         this.point = point;
-        this.x_shift = xShift;
-        this.y_shift = yShift;
+        this.xShift = xShift;
+        this.yShift = yShift;
         this.scale = scale;
     }
 
-    public String point() {
+    public String getPoint() {
         return point;
     }
 
-    public Float xShift() {
-        return x_shift;
+    public Float getX_shift() {
+        return xShift;
     }
 
-    public Float yShift() {
-        return y_shift;
+    public Float getY_shift() {
+        return yShift;
     }
 
-    public Float scale() {
+    public Float getScale() {
         return scale;
     }
 
@@ -58,16 +64,16 @@ public class MaskPosition implements Serializable {
         MaskPosition that = (MaskPosition) o;
 
         if (point != null ? !point.equals(that.point) : that.point != null) return false;
-        if (x_shift != null ? !x_shift.equals(that.x_shift) : that.x_shift != null) return false;
-        if (y_shift != null ? !y_shift.equals(that.y_shift) : that.y_shift != null) return false;
+        if (xShift != null ? !xShift.equals(that.xShift) : that.xShift != null) return false;
+        if (yShift != null ? !yShift.equals(that.yShift) : that.yShift != null) return false;
         return scale != null ? scale.equals(that.scale) : that.scale == null;
     }
 
     @Override
     public int hashCode() {
         int result = point != null ? point.hashCode() : 0;
-        result = 31 * result + (x_shift != null ? x_shift.hashCode() : 0);
-        result = 31 * result + (y_shift != null ? y_shift.hashCode() : 0);
+        result = 31 * result + (xShift != null ? xShift.hashCode() : 0);
+        result = 31 * result + (yShift != null ? yShift.hashCode() : 0);
         result = 31 * result + (scale != null ? scale.hashCode() : 0);
         return result;
     }
@@ -76,8 +82,8 @@ public class MaskPosition implements Serializable {
     public String toString() {
         return "MaskPosition{" +
                 "point='" + point + '\'' +
-                ", x_shift=" + x_shift +
-                ", y_shift=" + y_shift +
+                ", xShift=" + xShift +
+                ", yShift=" + yShift +
                 ", scale=" + scale +
                 '}';
     }

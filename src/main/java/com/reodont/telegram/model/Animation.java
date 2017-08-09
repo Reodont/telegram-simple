@@ -7,16 +7,25 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class Animation implements Serializable {
-    private final static long serialVersionUID = 0L;
 
-    private String file_id;
+    private static final long serialVersionUID = 7362662984394436659L;
+
+    private String fileId;
+
     private PhotoSize thumb;
-    private String file_name;
-    private String mime_type;
-    private Integer file_size;
+
+    private String fileName;
+
+    private String mimeType;
+
+    private Integer fileSize;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
     public String fileId() {
-        return file_id;
+        return fileId;
     }
 
     public PhotoSize thumb() {
@@ -24,15 +33,15 @@ public class Animation implements Serializable {
     }
 
     public String fileName() {
-        return file_name;
+        return fileName;
     }
 
     public String mimeType() {
-        return mime_type;
+        return mimeType;
     }
 
     public Integer fileSize() {
-        return file_size;
+        return fileSize;
     }
 
     @Override
@@ -42,26 +51,31 @@ public class Animation implements Serializable {
 
         Animation animation = (Animation) o;
 
-        if (file_id != null ? !file_id.equals(animation.file_id) : animation.file_id != null) return false;
+        if (fileId != null ? !fileId.equals(animation.fileId) : animation.fileId != null) return false;
         if (thumb != null ? !thumb.equals(animation.thumb) : animation.thumb != null) return false;
-        if (file_name != null ? !file_name.equals(animation.file_name) : animation.file_name != null) return false;
-        if (mime_type != null ? !mime_type.equals(animation.mime_type) : animation.mime_type != null) return false;
-        return file_size != null ? file_size.equals(animation.file_size) : animation.file_size == null;
+        if (fileName != null ? !fileName.equals(animation.fileName) : animation.fileName != null) return false;
+        if (mimeType != null ? !mimeType.equals(animation.mimeType) : animation.mimeType != null) return false;
+        return fileSize != null ? fileSize.equals(animation.fileSize) : animation.fileSize == null;
     }
 
     @Override
     public int hashCode() {
-        return file_id != null ? file_id.hashCode() : 0;
+        int result = fileId != null ? fileId.hashCode() : 0;
+        result = 31 * result + (thumb != null ? thumb.hashCode() : 0);
+        result = 31 * result + (fileName != null ? fileName.hashCode() : 0);
+        result = 31 * result + (mimeType != null ? mimeType.hashCode() : 0);
+        result = 31 * result + (fileSize != null ? fileSize.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "Animation{" +
-                "file_id='" + file_id + '\'' +
+                "fileId='" + fileId + '\'' +
                 ", thumb=" + thumb +
-                ", file_name='" + file_name + '\'' +
-                ", mime_type='" + mime_type + '\'' +
-                ", file_size=" + file_size +
+                ", fileName='" + fileName + '\'' +
+                ", mimeType='" + mimeType + '\'' +
+                ", fileSize=" + fileSize +
                 '}';
     }
 }

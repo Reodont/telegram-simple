@@ -7,27 +7,35 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class Venue implements Serializable {
-    private final static long serialVersionUID = 0L;
+
+    private static final long serialVersionUID = 3336274487315835922L;
 
     private Location location;
-    private String title;
-    private String address;
-    private String foursquare_id;
 
-    public Location location() {
+    private String title;
+
+    private String address;
+
+    private String foursquareId;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Location getLocation() {
         return location;
     }
 
-    public String title() {
+    public String getTitle() {
         return title;
     }
 
-    public String address() {
+    public String getAddress() {
         return address;
     }
 
-    public String foursquareId() {
-        return foursquare_id;
+    public String getFoursquareId() {
+        return foursquareId;
     }
 
     @Override
@@ -40,8 +48,7 @@ public class Venue implements Serializable {
         if (location != null ? !location.equals(venue.location) : venue.location != null) return false;
         if (title != null ? !title.equals(venue.title) : venue.title != null) return false;
         if (address != null ? !address.equals(venue.address) : venue.address != null) return false;
-        return foursquare_id != null ? foursquare_id.equals(venue.foursquare_id) : venue.foursquare_id == null;
-
+        return foursquareId != null ? foursquareId.equals(venue.foursquareId) : venue.foursquareId == null;
     }
 
     @Override
@@ -49,7 +56,7 @@ public class Venue implements Serializable {
         int result = location != null ? location.hashCode() : 0;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (address != null ? address.hashCode() : 0);
-        result = 31 * result + (foursquare_id != null ? foursquare_id.hashCode() : 0);
+        result = 31 * result + (foursquareId != null ? foursquareId.hashCode() : 0);
         return result;
     }
 
@@ -59,7 +66,7 @@ public class Venue implements Serializable {
                 "location=" + location +
                 ", title='" + title + '\'' +
                 ", address='" + address + '\'' +
-                ", foursquare_id='" + foursquare_id + '\'' +
+                ", foursquareId='" + foursquareId + '\'' +
                 '}';
     }
 }

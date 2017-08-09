@@ -7,49 +7,60 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class Update implements Serializable {
-    private final static long serialVersionUID = 0L;
 
-    private Integer update_id;
+    private static final long serialVersionUID = 6754827162861790992L;
+
+    private Integer updateId;
+
     private Message message;
-    private Message edited_message;
-    private Message channel_post;
-    private Message edited_channel_post;
-    private InlineQuery inline_query;
-    private ChosenInlineResult chosen_inline_result;
-    private CallbackQuery callback_query;
 
-    public Integer updateId() {
-        return update_id;
+    private Message editedMessage;
+
+    private Message channelPost;
+
+    private Message editedChannelPost;
+
+    private InlineQuery inlineQuery;
+
+    private ChosenInlineResult chosenInlineResult;
+
+    private CallbackQuery callbackQuery;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public Message message() {
+    public Integer getUpdateId() {
+        return updateId;
+    }
+
+    public Message getMessage() {
         return message;
     }
 
-    public Message editedMessage() {
-        return edited_message;
+    public Message getEditedMessage() {
+        return editedMessage;
     }
 
-    public Message channelPost() {
-        return channel_post;
+    public Message getChannelPost() {
+        return channelPost;
     }
 
-    public Message editedChannelPost() {
-        return edited_channel_post;
+    public Message getEditedChannelPost() {
+        return editedChannelPost;
     }
 
-    public InlineQuery inlineQuery() {
-        return inline_query;
+    public InlineQuery getInlineQuery() {
+        return inlineQuery;
     }
 
-    public ChosenInlineResult chosenInlineResult() {
-        return chosen_inline_result;
+    public ChosenInlineResult getChosenInlineResult() {
+        return chosenInlineResult;
     }
 
-    public CallbackQuery callbackQuery() {
-        return callback_query;
+    public CallbackQuery getCallbackQuery() {
+        return callbackQuery;
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -58,38 +69,43 @@ public class Update implements Serializable {
 
         Update update = (Update) o;
 
-        if (update_id != null ? !update_id.equals(update.update_id) : update.update_id != null) return false;
+        if (updateId != null ? !updateId.equals(update.updateId) : update.updateId != null) return false;
         if (message != null ? !message.equals(update.message) : update.message != null) return false;
-        if (edited_message != null ? !edited_message.equals(update.edited_message) : update.edited_message != null)
+        if (editedMessage != null ? !editedMessage.equals(update.editedMessage) : update.editedMessage != null)
             return false;
-        if (channel_post != null ? !channel_post.equals(update.channel_post) : update.channel_post != null)
+        if (channelPost != null ? !channelPost.equals(update.channelPost) : update.channelPost != null) return false;
+        if (editedChannelPost != null ? !editedChannelPost.equals(update.editedChannelPost) : update.editedChannelPost != null)
             return false;
-        if (edited_channel_post != null ? !edited_channel_post.equals(update.edited_channel_post) : update.edited_channel_post != null)
+        if (inlineQuery != null ? !inlineQuery.equals(update.inlineQuery) : update.inlineQuery != null) return false;
+        if (chosenInlineResult != null ? !chosenInlineResult.equals(update.chosenInlineResult) : update.chosenInlineResult != null)
             return false;
-        if (inline_query != null ? !inline_query.equals(update.inline_query) : update.inline_query != null)
-            return false;
-        if (chosen_inline_result != null ? !chosen_inline_result.equals(update.chosen_inline_result) : update.chosen_inline_result != null)
-            return false;
-        return (callback_query != null ? callback_query.equals(update.callback_query) : update.callback_query == null);
-
+        return callbackQuery != null ? callbackQuery.equals(update.callbackQuery) : update.callbackQuery == null;
     }
 
     @Override
     public int hashCode() {
-        return update_id != null ? update_id.hashCode() : 0;
+        int result = updateId != null ? updateId.hashCode() : 0;
+        result = 31 * result + (message != null ? message.hashCode() : 0);
+        result = 31 * result + (editedMessage != null ? editedMessage.hashCode() : 0);
+        result = 31 * result + (channelPost != null ? channelPost.hashCode() : 0);
+        result = 31 * result + (editedChannelPost != null ? editedChannelPost.hashCode() : 0);
+        result = 31 * result + (inlineQuery != null ? inlineQuery.hashCode() : 0);
+        result = 31 * result + (chosenInlineResult != null ? chosenInlineResult.hashCode() : 0);
+        result = 31 * result + (callbackQuery != null ? callbackQuery.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "Update{" +
-                "update_id=" + update_id +
+                "updateId=" + updateId +
                 ", message=" + message +
-                ", edited_message=" + edited_message +
-                ", channel_post=" + channel_post +
-                ", edited_channel_post=" + edited_channel_post +
-                ", inline_query=" + inline_query +
-                ", chosen_inline_result=" + chosen_inline_result +
-                ", callback_query=" + callback_query +
+                ", editedMessage=" + editedMessage +
+                ", channelPost=" + channelPost +
+                ", editedChannelPost=" + editedChannelPost +
+                ", inlineQuery=" + inlineQuery +
+                ", chosenInlineResult=" + chosenInlineResult +
+                ", callbackQuery=" + callbackQuery +
                 '}';
     }
 }

@@ -9,26 +9,34 @@ import java.util.Arrays;
 
 
 public class StickerSet implements Serializable {
-    private final static long serialVersionUID = 0L;
+
+    private static final long serialVersionUID = -4113331034675690166L;
 
     private String name;
+
     private String title;
-    private Boolean contains_masks;
+
+    private Boolean containsMasks;
+
     private Sticker[] stickers;
 
-    public String name() {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getName() {
         return name;
     }
 
-    public String title() {
+    public String getTitle() {
         return title;
     }
 
-    public Boolean containsMasks() {
-        return contains_masks;
+    public Boolean getContainsMasks() {
+        return containsMasks;
     }
 
-    public Sticker[] stickers() {
+    public Sticker[] getStickers() {
         return stickers;
     }
 
@@ -41,7 +49,7 @@ public class StickerSet implements Serializable {
 
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (title != null ? !title.equals(that.title) : that.title != null) return false;
-        if (contains_masks != null ? !contains_masks.equals(that.contains_masks) : that.contains_masks != null)
+        if (containsMasks != null ? !containsMasks.equals(that.containsMasks) : that.containsMasks != null)
             return false;
         // Probably incorrect - comparing Object[] arrays with Arrays.equals
         return Arrays.equals(stickers, that.stickers);
@@ -51,7 +59,7 @@ public class StickerSet implements Serializable {
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (contains_masks != null ? contains_masks.hashCode() : 0);
+        result = 31 * result + (containsMasks != null ? containsMasks.hashCode() : 0);
         result = 31 * result + Arrays.hashCode(stickers);
         return result;
     }
@@ -61,7 +69,7 @@ public class StickerSet implements Serializable {
         return "StickerSet{" +
                 "name='" + name + '\'' +
                 ", title='" + title + '\'' +
-                ", contains_masks=" + contains_masks +
+                ", containsMasks=" + containsMasks +
                 ", stickers=" + Arrays.toString(stickers) +
                 '}';
     }

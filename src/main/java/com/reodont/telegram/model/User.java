@@ -7,32 +7,41 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private final static long serialVersionUID = 0L;
+
+    private static final long serialVersionUID = 4413568419230434499L;
 
     private Integer id;
-    private String first_name;
-    private String last_name;
-    private String username;
-    private String language_code;
 
-    public Integer id() {
+    private String firstName;
+
+    private String lastName;
+
+    private String username;
+
+    private String languageCode;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public String firstName() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String lastName() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String username() {
+    public String getUsername() {
         return username;
     }
 
-    public String languageCode() {
-        return language_code;
+    public String getLanguageCode() {
+        return languageCode;
     }
 
     @Override
@@ -43,25 +52,30 @@ public class User implements Serializable {
         User user = (User) o;
 
         if (id != null ? !id.equals(user.id) : user.id != null) return false;
-        if (first_name != null ? !first_name.equals(user.first_name) : user.first_name != null) return false;
-        if (last_name != null ? !last_name.equals(user.last_name) : user.last_name != null) return false;
+        if (firstName != null ? !firstName.equals(user.firstName) : user.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(user.lastName) : user.lastName != null) return false;
         if (username != null ? !username.equals(user.username) : user.username != null) return false;
-        return language_code != null ? language_code.equals(user.language_code) : user.language_code == null;
+        return languageCode != null ? languageCode.equals(user.languageCode) : user.languageCode == null;
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (languageCode != null ? languageCode.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", username='" + username + '\'' +
-                ", language_code='" + language_code + '\'' +
+                ", languageCode='" + languageCode + '\'' +
                 '}';
     }
 }

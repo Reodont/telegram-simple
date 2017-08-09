@@ -8,37 +8,46 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 public class Game implements Serializable {
-    private final static long serialVersionUID = 0L;
+
+    private static final long serialVersionUID = 4746582109582449885L;
 
     private String title;
+
     private String description;
+
     private PhotoSize[] photo;
 
     private String text;
-    private MessageEntity[] text_entities;
+
+    private MessageEntity[] textEntities;
+
     private Animation animation;
 
-    public String title() {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getTitle() {
         return title;
     }
 
-    public String description() {
+    public String getDescription() {
         return description;
     }
 
-    public PhotoSize[] photo() {
+    public PhotoSize[] getPhoto() {
         return photo;
     }
 
-    public String text() {
+    public String getText() {
         return text;
     }
 
-    public MessageEntity[] textEntities() {
-        return text_entities;
+    public MessageEntity[] getTextEntities() {
+        return textEntities;
     }
 
-    public Animation animation() {
+    public Animation getAnimation() {
         return animation;
     }
 
@@ -55,7 +64,7 @@ public class Game implements Serializable {
         if (!Arrays.equals(photo, game.photo)) return false;
         if (text != null ? !text.equals(game.text) : game.text != null) return false;
         // Probably incorrect - comparing Object[] arrays with Arrays.equals
-        if (!Arrays.equals(text_entities, game.text_entities)) return false;
+        if (!Arrays.equals(textEntities, game.textEntities)) return false;
         return animation != null ? animation.equals(game.animation) : game.animation == null;
     }
 
@@ -65,7 +74,7 @@ public class Game implements Serializable {
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + Arrays.hashCode(photo);
         result = 31 * result + (text != null ? text.hashCode() : 0);
-        result = 31 * result + Arrays.hashCode(text_entities);
+        result = 31 * result + Arrays.hashCode(textEntities);
         result = 31 * result + (animation != null ? animation.hashCode() : 0);
         return result;
     }
@@ -77,7 +86,7 @@ public class Game implements Serializable {
                 ", description='" + description + '\'' +
                 ", photo=" + Arrays.toString(photo) +
                 ", text='" + text + '\'' +
-                ", text_entities=" + Arrays.toString(text_entities) +
+                ", textEntities=" + Arrays.toString(textEntities) +
                 ", animation=" + animation +
                 '}';
     }

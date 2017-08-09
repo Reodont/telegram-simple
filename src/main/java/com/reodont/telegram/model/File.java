@@ -7,22 +7,29 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class File implements Serializable {
-    private final static long serialVersionUID = 0L;
 
-    private String file_id;
-    private Integer file_size;
-    private String file_path;
+    private static final long serialVersionUID = -812908085134990765L;
 
-    public String fileId() {
-        return file_id;
+    private String fileId;
+
+    private Integer fileSize;
+
+    private String filePath;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public Integer fileSize() {
-        return file_size;
+    public String getFileId() {
+        return fileId;
     }
 
-    public String filePath() {
-        return file_path;
+    public Integer getFileSize() {
+        return fileSize;
+    }
+
+    public String getFilePath() {
+        return filePath;
     }
 
     @Override
@@ -32,22 +39,25 @@ public class File implements Serializable {
 
         File file = (File) o;
 
-        if (file_id != null ? !file_id.equals(file.file_id) : file.file_id != null) return false;
-        if (file_size != null ? !file_size.equals(file.file_size) : file.file_size != null) return false;
-        return file_path != null ? file_path.equals(file.file_path) : file.file_path == null;
+        if (fileId != null ? !fileId.equals(file.fileId) : file.fileId != null) return false;
+        if (fileSize != null ? !fileSize.equals(file.fileSize) : file.fileSize != null) return false;
+        return filePath != null ? filePath.equals(file.filePath) : file.filePath == null;
     }
 
     @Override
     public int hashCode() {
-        return file_id != null ? file_id.hashCode() : 0;
+        int result = fileId != null ? fileId.hashCode() : 0;
+        result = 31 * result + (fileSize != null ? fileSize.hashCode() : 0);
+        result = 31 * result + (filePath != null ? filePath.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "File{" +
-                "file_id='" + file_id + '\'' +
-                ", file_size=" + file_size +
-                ", file_path='" + file_path + '\'' +
+                "fileId='" + fileId + '\'' +
+                ", fileSize=" + fileSize +
+                ", filePath='" + filePath + '\'' +
                 '}';
     }
 }

@@ -9,68 +9,75 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Chat implements Serializable {
-    private final static long serialVersionUID = 0L;
+
+    private static final long serialVersionUID = -7440147796849948969L;
 
     public enum Type {
         @SerializedName("private") Private, group, supergroup, channel
     }
 
     private Long id;
+
     private Type type;
 
-    private String first_name;
-    private String last_name;
+    private String firstName;
 
+    private String lastName;
 
     private String username;
 
-
     private String title;
 
-    private Boolean all_members_are_administrators;
+    private Boolean allMembersAreAdministrators;
 
     private ChatPhoto photo;
-    private String description;
-    private String invite_link;
 
-    public Long id() {
+    private String description;
+
+    private String inviteLink;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public Type type() {
+    public Type getType() {
         return type;
     }
 
-    public String firstName() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String lastName() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String username() {
+    public String getUsername() {
         return username;
     }
 
-    public String title() {
+    public String getTitle() {
         return title;
     }
 
-    public Boolean allMembersAreAdministrators() {
-        return all_members_are_administrators;
+    public Boolean getAllMembersAreAdministrators() {
+        return allMembersAreAdministrators;
     }
 
-    public ChatPhoto photo() {
+    public ChatPhoto getPhoto() {
         return photo;
     }
 
-    public String description() {
+    public String getDescription() {
         return description;
     }
 
-    public String inviteLink() {
-        return invite_link;
+    public String getInviteLink() {
+        return inviteLink;
     }
 
     @Override
@@ -82,20 +89,30 @@ public class Chat implements Serializable {
 
         if (id != null ? !id.equals(chat.id) : chat.id != null) return false;
         if (type != chat.type) return false;
-        if (first_name != null ? !first_name.equals(chat.first_name) : chat.first_name != null) return false;
-        if (last_name != null ? !last_name.equals(chat.last_name) : chat.last_name != null) return false;
+        if (firstName != null ? !firstName.equals(chat.firstName) : chat.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(chat.lastName) : chat.lastName != null) return false;
         if (username != null ? !username.equals(chat.username) : chat.username != null) return false;
         if (title != null ? !title.equals(chat.title) : chat.title != null) return false;
-        if (all_members_are_administrators != null ? !all_members_are_administrators.equals(chat.all_members_are_administrators) : chat.all_members_are_administrators != null)
+        if (allMembersAreAdministrators != null ? !allMembersAreAdministrators.equals(chat.allMembersAreAdministrators) : chat.allMembersAreAdministrators != null)
             return false;
         if (photo != null ? !photo.equals(chat.photo) : chat.photo != null) return false;
         if (description != null ? !description.equals(chat.description) : chat.description != null) return false;
-        return invite_link != null ? invite_link.equals(chat.invite_link) : chat.invite_link == null;
+        return inviteLink != null ? inviteLink.equals(chat.inviteLink) : chat.inviteLink == null;
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (username != null ? username.hashCode() : 0);
+        result = 31 * result + (title != null ? title.hashCode() : 0);
+        result = 31 * result + (allMembersAreAdministrators != null ? allMembersAreAdministrators.hashCode() : 0);
+        result = 31 * result + (photo != null ? photo.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (inviteLink != null ? inviteLink.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -103,14 +120,14 @@ public class Chat implements Serializable {
         return "Chat{" +
                 "id=" + id +
                 ", type=" + type +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", username='" + username + '\'' +
                 ", title='" + title + '\'' +
-                ", all_members_are_administrators=" + all_members_are_administrators +
+                ", allMembersAreAdministrators=" + allMembersAreAdministrators +
                 ", photo=" + photo +
                 ", description='" + description + '\'' +
-                ", invite_link='" + invite_link + '\'' +
+                ", inviteLink='" + inviteLink + '\'' +
                 '}';
     }
 }

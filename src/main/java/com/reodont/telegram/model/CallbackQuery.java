@@ -7,42 +7,53 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class CallbackQuery implements Serializable {
-    private final static long serialVersionUID = 0L;
+
+    private static final long serialVersionUID = -5860887247179163244L;
 
     private String id;
-    private User from;
-    private Message message;
-    private String inline_message_id;
-    private String chat_instance;
-    private String data;
-    private String game_short_name;
 
-    public String id() {
+    private User from;
+
+    private Message message;
+
+    private String inlineMessageId;
+
+    private String chatInstance;
+
+    private String data;
+
+    private String gameShortName;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public User from() {
+    public User getFrom() {
         return from;
     }
 
-    public Message message() {
+    public Message getMessage() {
         return message;
     }
 
-    public String inlineMessageId() {
-        return inline_message_id;
+    public String getInlineMessageId() {
+        return inlineMessageId;
     }
 
-    public String chatInstance() {
-        return chat_instance;
+    public String getChatInstance() {
+        return chatInstance;
     }
 
-    public String data() {
+    public String getData() {
         return data;
     }
 
-    public String gameShortName() {
-        return game_short_name;
+    public String getGameShortName() {
+        return gameShortName;
     }
 
     @Override
@@ -55,17 +66,23 @@ public class CallbackQuery implements Serializable {
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (from != null ? !from.equals(that.from) : that.from != null) return false;
         if (message != null ? !message.equals(that.message) : that.message != null) return false;
-        if (inline_message_id != null ? !inline_message_id.equals(that.inline_message_id) : that.inline_message_id != null)
+        if (inlineMessageId != null ? !inlineMessageId.equals(that.inlineMessageId) : that.inlineMessageId != null)
             return false;
-        if (chat_instance != null ? !chat_instance.equals(that.chat_instance) : that.chat_instance != null)
-            return false;
+        if (chatInstance != null ? !chatInstance.equals(that.chatInstance) : that.chatInstance != null) return false;
         if (data != null ? !data.equals(that.data) : that.data != null) return false;
-        return game_short_name != null ? game_short_name.equals(that.game_short_name) : that.game_short_name == null;
+        return gameShortName != null ? gameShortName.equals(that.gameShortName) : that.gameShortName == null;
     }
 
     @Override
     public int hashCode() {
-        return id != null ? id.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (from != null ? from.hashCode() : 0);
+        result = 31 * result + (message != null ? message.hashCode() : 0);
+        result = 31 * result + (inlineMessageId != null ? inlineMessageId.hashCode() : 0);
+        result = 31 * result + (chatInstance != null ? chatInstance.hashCode() : 0);
+        result = 31 * result + (data != null ? data.hashCode() : 0);
+        result = 31 * result + (gameShortName != null ? gameShortName.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -74,10 +91,10 @@ public class CallbackQuery implements Serializable {
                 "id='" + id + '\'' +
                 ", from=" + from +
                 ", message=" + message +
-                ", inline_message_id='" + inline_message_id + '\'' +
-                ", chat_instance='" + chat_instance + '\'' +
+                ", inlineMessageId='" + inlineMessageId + '\'' +
+                ", chatInstance='" + chatInstance + '\'' +
                 ", data='" + data + '\'' +
-                ", game_short_name='" + game_short_name + '\'' +
+                ", gameShortName='" + gameShortName + '\'' +
                 '}';
     }
 }

@@ -7,27 +7,35 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class PhotoSize implements Serializable {
-    private final static long serialVersionUID = 0L;
 
-    private String file_id;
+    private static final long serialVersionUID = 5907384692976649033L;
+
+    private String fileId;
+
     private Integer width;
-    private Integer height;
-    private Integer file_size;
 
-    public String fileId() {
-        return file_id;
+    private Integer height;
+
+    private Integer fileSize;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public Integer width() {
+    public String getFileId() {
+        return fileId;
+    }
+
+    public Integer getWidth() {
         return width;
     }
 
-    public Integer height() {
+    public Integer getHeight() {
         return height;
     }
 
-    public Integer fileSize() {
-        return file_size;
+    public Integer getFileSize() {
+        return fileSize;
     }
 
     @Override
@@ -37,24 +45,28 @@ public class PhotoSize implements Serializable {
 
         PhotoSize photoSize = (PhotoSize) o;
 
-        if (file_id != null ? !file_id.equals(photoSize.file_id) : photoSize.file_id != null) return false;
+        if (fileId != null ? !fileId.equals(photoSize.fileId) : photoSize.fileId != null) return false;
         if (width != null ? !width.equals(photoSize.width) : photoSize.width != null) return false;
         if (height != null ? !height.equals(photoSize.height) : photoSize.height != null) return false;
-        return file_size != null ? file_size.equals(photoSize.file_size) : photoSize.file_size == null;
+        return fileSize != null ? fileSize.equals(photoSize.fileSize) : photoSize.fileSize == null;
     }
 
     @Override
     public int hashCode() {
-        return file_id != null ? file_id.hashCode() : 0;
+        int result = fileId != null ? fileId.hashCode() : 0;
+        result = 31 * result + (width != null ? width.hashCode() : 0);
+        result = 31 * result + (height != null ? height.hashCode() : 0);
+        result = 31 * result + (fileSize != null ? fileSize.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "PhotoSize{" +
-                "file_id='" + file_id + '\'' +
+                "fileId='" + fileId + '\'' +
                 ", width=" + width +
                 ", height=" + height +
-                ", file_size=" + file_size +
+                ", fileSize=" + fileSize +
                 '}';
     }
 }

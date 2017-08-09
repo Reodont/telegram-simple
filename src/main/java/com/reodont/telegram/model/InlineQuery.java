@@ -7,31 +7,40 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class InlineQuery implements Serializable {
-    private final static long serialVersionUID = 0L;
+
+    private static final long serialVersionUID = 1188487403631474159L;
 
     private String id;
+
     private User from;
+
     private Location location;
+
     private String query;
+
     private String offset;
 
-    public String id() {
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public User from() {
+    public User getFrom() {
         return from;
     }
 
-    public Location location() {
+    public Location getLocation() {
         return location;
     }
 
-    public String query() {
+    public String getQuery() {
         return query;
     }
 
-    public String offset() {
+    public String getOffset() {
         return offset;
     }
 

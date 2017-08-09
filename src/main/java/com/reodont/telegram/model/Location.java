@@ -7,16 +7,18 @@ package com.reodont.telegram.model;
 import java.io.Serializable;
 
 public class Location implements Serializable {
-    private final static long serialVersionUID = 0L;
+
+    private static final long serialVersionUID = 1453772810132197854L;
 
     private Float longitude;
+
     private Float latitude;
 
-    public Float longitude() {
+    public Float getLongitude() {
         return longitude;
     }
 
-    public Float latitude() {
+    public Float getLatitude() {
         return latitude;
     }
 
