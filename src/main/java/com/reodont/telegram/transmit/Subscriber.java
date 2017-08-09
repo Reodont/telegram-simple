@@ -1,31 +1,30 @@
+/*
+ * Copyright (c) 2017.  Roman Kvasnytskyy.
+ */
+
 package com.reodont.telegram.transmit;
 
-import com.reodont.telegram.model.WrappedMessage;
+import com.reodont.telegram.eip.Event;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Subscriber {
     //store all messages received by the subscriber
-    private List<WrappedMessage> subscriberMessages = new ArrayList<WrappedMessage>();
+    private List<Event> subscriberEvents = new ArrayList<>();
 
-    public List<WrappedMessage> getSubscriberMessages() {
-        return subscriberMessages;
+    public List<Event> getSubscriberEvents() {
+        return subscriberEvents;
     }
 
-    public void setSubscriberMessages(List<WrappedMessage> subscriberMessages) {
-        this.subscriberMessages = subscriberMessages;
+    public void setSubscriberEvents(List<Event> subscriberEvents) {
+        this.subscriberEvents = subscriberEvents;
     }
 
-    public abstract void addSubscriber(String topic, PubSubService pubSubService);
+    public abstract void addSubscriber(Event event, PubSubService pubSubService);
 
-    public abstract void unSubscribe(String topic, PubSubService pubSubService);
+    public abstract void unSubscribe(Event event, PubSubService pubSubService);
 
-    public abstract void getMessagesForSubscriberOfTopic(String topic, PubSubService pubSubService);
+    public abstract void getEventsForSubscriberOfTopic(Event event, PubSubService pubSubService);
 
-    public void printMessages() {
-        for (WrappedMessage message : subscriberMessages) {
-            System.out.println("Message Topic -> " + message.getTopic() + " : " + message.getMsg());
-        }
-    }
 }

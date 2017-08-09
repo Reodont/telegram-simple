@@ -1,4 +1,8 @@
+/*
+ * Copyright (c) 2017.  Roman Kvasnytskyy.
+ */
+
 package com.reodont.telegram.eip;
 
-public interface Command extends Message {
+public abstract class Command extends Message {
 }

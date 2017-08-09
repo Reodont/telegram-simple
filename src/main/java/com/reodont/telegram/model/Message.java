@@ -1,5 +1,7 @@
 package com.reodont.telegram.model;
 
+import com.reodont.telegram.eip.Event;
+
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -43,6 +45,7 @@ public class Message implements Serializable {
     private Long migrate_from_chat_id;
     private Message pinned_message;
     private Invoice invoice;
+    private Event event;
 
     public Integer messageId() {
         return message_id;
@@ -192,9 +195,8 @@ public class Message implements Serializable {
         return invoice;
     }
 
-    public Message(Chat chat, String text) {
-        this.chat = chat;
-        this.text = text;
+    public Event event() {
+        return event;
     }
 
     @Override
@@ -259,12 +261,51 @@ public class Message implements Serializable {
             return false;
         if (pinned_message != null ? !pinned_message.equals(message.pinned_message) : message.pinned_message != null)
             return false;
-        return (invoice != null ? invoice.equals(message.invoice) : message.invoice == null);
+        if (invoice != null ? !invoice.equals(message.invoice) : message.invoice != null) return false;
+        return event != null ? event.equals(message.event) : message.event == null;
     }
 
     @Override
     public int hashCode() {
-        return message_id != null ? message_id.hashCode() : 0;
+        int result = message_id != null ? message_id.hashCode() : 0;
+        result = 31 * result + (from != null ? from.hashCode() : 0);
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        result = 31 * result + (chat != null ? chat.hashCode() : 0);
+        result = 31 * result + (forward_from != null ? forward_from.hashCode() : 0);
+        result = 31 * result + (forward_from_chat != null ? forward_from_chat.hashCode() : 0);
+        result = 31 * result + (forward_from_message_id != null ? forward_from_message_id.hashCode() : 0);
+        result = 31 * result + (forward_date != null ? forward_date.hashCode() : 0);
+        result = 31 * result + (reply_to_message != null ? reply_to_message.hashCode() : 0);
+        result = 31 * result + (edit_date != null ? edit_date.hashCode() : 0);
+        result = 31 * result + (text != null ? text.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(entities);
+        result = 31 * result + (audio != null ? audio.hashCode() : 0);
+        result = 31 * result + (document != null ? document.hashCode() : 0);
+        result = 31 * result + (game != null ? game.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(photo);
+        result = 31 * result + (sticker != null ? sticker.hashCode() : 0);
+        result = 31 * result + (video != null ? video.hashCode() : 0);
+        result = 31 * result + (voice != null ? voice.hashCode() : 0);
+        result = 31 * result + (video_note != null ? video_note.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(new_chat_members);
+        result = 31 * result + (caption != null ? caption.hashCode() : 0);
+        result = 31 * result + (contact != null ? contact.hashCode() : 0);
+        result = 31 * result + (location != null ? location.hashCode() : 0);
+        result = 31 * result + (venue != null ? venue.hashCode() : 0);
+        result = 31 * result + (new_chat_member != null ? new_chat_member.hashCode() : 0);
+        result = 31 * result + (left_chat_member != null ? left_chat_member.hashCode() : 0);
+        result = 31 * result + (new_chat_title != null ? new_chat_title.hashCode() : 0);
+        result = 31 * result + Arrays.hashCode(new_chat_photo);
+        result = 31 * result + (delete_chat_photo != null ? delete_chat_photo.hashCode() : 0);
+        result = 31 * result + (group_chat_created != null ? group_chat_created.hashCode() : 0);
+        result = 31 * result + (supergroup_chat_created != null ? supergroup_chat_created.hashCode() : 0);
+        result = 31 * result + (channel_chat_created != null ? channel_chat_created.hashCode() : 0);
+        result = 31 * result + (migrate_to_chat_id != null ? migrate_to_chat_id.hashCode() : 0);
+        result = 31 * result + (migrate_from_chat_id != null ? migrate_from_chat_id.hashCode() : 0);
+        result = 31 * result + (pinned_message != null ? pinned_message.hashCode() : 0);
+        result = 31 * result + (invoice != null ? invoice.hashCode() : 0);
+        result = 31 * result + (event != null ? event.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -307,6 +348,7 @@ public class Message implements Serializable {
                 ", migrate_from_chat_id=" + migrate_from_chat_id +
                 ", pinned_message=" + pinned_message +
                 ", invoice=" + invoice +
+                ", event=" + event +
                 '}';
     }
 }

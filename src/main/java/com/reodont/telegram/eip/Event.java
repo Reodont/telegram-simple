@@ -1,4 +1,8 @@
+/*
+ * Copyright (c) 2017.  Roman Kvasnytskyy.
+ */
+
 package com.reodont.telegram.eip;
 
-public interface Event extends Message {
+public abstract class Event extends Message {
 }

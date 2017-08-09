@@ -1,97 +1,89 @@
+/*
+ * Copyright (c) 2017.  Roman Kvasnytskyy.
+ */
+
 package com.reodont.telegram.transmit;
 
-import com.reodont.telegram.model.WrappedMessage;
+import com.reodont.telegram.eip.Event;
 
 import java.util.*;
 
 public class PubSubService {
 
-    //Holds topics
-    public static final Set<String> topicSet = new HashSet<>();
-
     //Keeps set of subscriber topic wise, using set to prevent duplicates
-    private Map<String, Set<Subscriber>> subscribersTopicMap = new HashMap<>();
+    private Map<Class<? extends Event>, Set<Subscriber>> subscribersTopicMap = new HashMap<>();
 
     //Holds messages published by publishers
-    private Queue<WrappedMessage> messagesQueue = new LinkedList<>();
+    private Queue<Event> eventsQueue = new LinkedList<>();
 
     //Adds message sent by publisher to queue
-    public void addMessageToQueue(WrappedMessage message) {
-        messagesQueue.add(message);
+    public void addEventToQueue(Event event) {
+        eventsQueue.add(event);
     }
 
     //Add a new Subscriber for a topic
-    public void addSubscriber(String topic, Subscriber subscriber) {
+    public void addSubscriber(Event event, Subscriber subscriber) {
 
-        if (subscribersTopicMap.containsKey(topic)) {
-            Set<Subscriber> subscribers = subscribersTopicMap.get(topic);
+        if (subscribersTopicMap.containsKey(event.getClass())) {
+            Set<Subscriber> subscribers = subscribersTopicMap.get(event);
             subscribers.add(subscriber);
-            subscribersTopicMap.put(topic, subscribers);
+            subscribersTopicMap.put(event.getClass(), subscribers);
         } else {
             Set<Subscriber> subscribers = new HashSet<>();
             subscribers.add(subscriber);
-            subscribersTopicMap.put(topic, subscribers);
+            subscribersTopicMap.put(event.getClass(), subscribers);
         }
     }
 
     //Removes an existing subscriber for a topic
-    public void removeSubscriber(String topic, Subscriber subscriber) {
+    public void removeSubscriber(Event event, Subscriber subscriber) {
 
-        if (subscribersTopicMap.containsKey(topic)) {
-            Set<Subscriber> subscribers = subscribersTopicMap.get(topic);
+        if (subscribersTopicMap.containsKey(event.getClass())) {
+            Set<Subscriber> subscribers = subscribersTopicMap.get(event);
             subscribers.remove(subscriber);
-            subscribersTopicMap.put(topic, subscribers);
+            subscribersTopicMap.put(event.getClass(), subscribers);
         }
     }
 
-    //Adds new topic
-    public static void setTopics() {
-        topicSet.add("message");
-        topicSet.add("editedMessage");
-        topicSet.add("channelPost");
-        topicSet.add("editedChannelPost");
-        topicSet.add("null");
-    }
 
     //Broadcasts new messages added in queue to All subscribers of the topic. messagesQueue will be empty after broadcasting
     public void broadcast() {
-        if (messagesQueue.isEmpty()) {
+        if (eventsQueue.isEmpty()) {
             System.out.println("No messages from publishers to display");
         } else {
-            while (!messagesQueue.isEmpty()) {
-                WrappedMessage message = messagesQueue.remove();
-                String topic = message.getTopic();
+            while (!eventsQueue.isEmpty()) {
+                Event event = eventsQueue.remove();
 
-                Set<Subscriber> subscribersOfTopic = subscribersTopicMap.get(topic);
+                Set<Subscriber> subscribersOfTopic = subscribersTopicMap.get(event.getClass());
 
                 for (Subscriber subscriber : subscribersOfTopic) {
                     //add broadcasted message to subscribers message queue
-                    List<WrappedMessage> subscriberMessages = subscriber.getSubscriberMessages();
-                    subscriberMessages.add(message);
-                    subscriber.setSubscriberMessages(subscriberMessages);
+                    List<Event> subscriberEvents = subscriber.getSubscriberEvents();
+                    subscriberEvents.add(event);
+                    subscriber.setSubscriberEvents(subscriberEvents);
                 }
             }
         }
     }
 
     //Sends messages about a topic for subscriber
-    public void getMessagesForSubscriberOfTopic(String topic, Subscriber subscriber) {
-        if (messagesQueue.isEmpty()) {
+    public void getMessagesForSubscriberOfTopic(Event event, Subscriber subscriber) {
+        if (eventsQueue.isEmpty()) {
             System.out.println("No messages from publishers to display");
         } else {
-            while (!messagesQueue.isEmpty()) {
-                WrappedMessage message = messagesQueue.remove();
+            while (!eventsQueue.isEmpty()) {
+                Event tempEvent = eventsQueue.remove();
 
-                if (message.getTopic().equalsIgnoreCase(topic)) {
+                if (event.getClass().equals(tempEvent.getClass())) {
 
-                    Set<Subscriber> subscribersOfTopic = subscribersTopicMap.get(topic);
+                    Set<Subscriber> subscribersOfTopic = subscribersTopicMap.get(event);
 
                     for (Subscriber _subscriber : subscribersOfTopic) {
                         if (_subscriber.equals(subscriber)) {
                             //Adds broadcast message to subscriber message queue
-                            List<WrappedMessage> subscriberMessages = subscriber.getSubscriberMessages();
-                            subscriberMessages.add(message);
-                            subscriber.setSubscriberMessages(subscriberMessages);
+                            List<Event> subscriberEvents = subscriber.getSubscriberEvents();
+                            subscriberEvents.add(tempEvent);
+                            subscriber.setSubscriberEvents(subscriberEvents);
                         }
                     }
                 }
