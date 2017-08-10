@@ -11,7 +11,6 @@ import java.io.IOException;
 public class Application {
     public static void main(String[] args) throws IOException {
         Bot bot = new Bot();
-        bot.longPolling(bot.token);
-
+        bot.longPolling();
     }
 }

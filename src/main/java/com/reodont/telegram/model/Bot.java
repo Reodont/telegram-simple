@@ -4,10 +4,10 @@
 
 package com.reodont.telegram.model;
 
-import com.reodont.telegram.transmit.PubSubService;
+import com.reodont.telegram.subcriber.MessageSubscriber;
 import com.reodont.telegram.transmit.Publisher;
-import com.reodont.telegram.transmit.PublisherImplementation;
 import com.reodont.telegram.transmit.Request;
+import com.reodont.telegram.transmit.Subscriber;
 import com.reodont.telegram.util.ResourceUtils;
 
 import java.io.IOException;
@@ -21,35 +21,21 @@ public class Bot {
     public Bot() throws IOException {
     }
 
-    public void longPolling(String token) throws IOException {
+    public void longPolling() throws IOException {
         Request request = new Request();
         List<Update> updates = request.getUpdates(token);
-        Publisher publisher = new PublisherImplementation();
-        PubSubService pubSubService = new PubSubService();
-        /*
+        Publisher publisher = new Publisher();
+        Subscriber messageSubscriber = new MessageSubscriber();
+
+        publisher.addSubscriber(new NewTextMessage(), messageSubscriber);
+
         for (Update update : updates) {
-            if (update.getMessage().getText() != null && update.getMessage().getText().startsWith("/")) {
-                publisher.publish(new NewCommand(update.getMessage()), pubSubService);
-                System.out.println("READ THAT");
-            } else if (update.getMessage().getAudio() != null)
-                publisher.publish(new NewAudio(update.getMessage()), pubSubService);
-            else if (update.getMessage().getText() != null)
-                publisher.publish(new NewTextMessage(update.getMessage()), pubSubService);
-            else System.out.println("Unhandled Event!");
+            System.out.println(update.getUpdateId().toString());
+            if (update.getMessage() != null)
+                publisher.publish(new NewTextMessage(update.getMessage()));
         }
 
-
-        Subscriber test = new SubscribeImplementation();
-        test.addSubscriber(new NewTextMessage(), pubSubService);
-        test.addSubscriber(new NewAudio(), pubSubService);
-        test.addSubscriber(new NewCommand(), pubSubService);
-
-        pubSubService.broadcast();
-
-        for (Event event : test.getSubscriberEvents()) {
-            System.out.println(event);
-        }
-        */
+        publisher.broadcast();
 
     }
 }

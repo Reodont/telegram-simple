@@ -255,6 +255,11 @@ public class Message implements Serializable {
         return invoice;
     }
 
+    public Message(NewTextMessage event) {
+        this.text = event.getMessage().getText();
+        this.chat = event.getMessage().getChat();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
