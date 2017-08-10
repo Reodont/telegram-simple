@@ -4,14 +4,18 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class ChatPhoto implements Serializable {
 
     private static final long serialVersionUID = -4933399404600364195L;
 
+    @SerializedName("small_file_id")
     private String smallFileId;
 
+    @SerializedName("big_file_id")
     private String bigFileId;
 
     public static long getSerialVersionUID() {

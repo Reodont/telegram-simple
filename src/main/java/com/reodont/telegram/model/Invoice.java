@@ -4,6 +4,8 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Invoice implements Serializable {
@@ -14,11 +16,13 @@ public class Invoice implements Serializable {
 
     private String description;
 
-    private String start_parameter;
+    @SerializedName("start_parameter")
+    private String startParameter;
 
     private String currency;
 
-    private Integer total_amount;
+    @SerializedName("total_amount")
+    private Integer totalAmount;
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
@@ -32,16 +36,16 @@ public class Invoice implements Serializable {
         return description;
     }
 
-    public String getStart_parameter() {
-        return start_parameter;
+    public String getStartParameter() {
+        return startParameter;
     }
 
     public String getCurrency() {
         return currency;
     }
 
-    public Integer getTotal_amount() {
-        return total_amount;
+    public Integer getTotalAmount() {
+        return totalAmount;
     }
 
     @Override
@@ -53,19 +57,19 @@ public class Invoice implements Serializable {
 
         if (title != null ? !title.equals(invoice.title) : invoice.title != null) return false;
         if (description != null ? !description.equals(invoice.description) : invoice.description != null) return false;
-        if (start_parameter != null ? !start_parameter.equals(invoice.start_parameter) : invoice.start_parameter != null)
+        if (startParameter != null ? !startParameter.equals(invoice.startParameter) : invoice.startParameter != null)
             return false;
         if (currency != null ? !currency.equals(invoice.currency) : invoice.currency != null) return false;
-        return total_amount != null ? total_amount.equals(invoice.total_amount) : invoice.total_amount == null;
+        return totalAmount != null ? totalAmount.equals(invoice.totalAmount) : invoice.totalAmount == null;
     }
 
     @Override
     public int hashCode() {
         int result = title != null ? title.hashCode() : 0;
         result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (start_parameter != null ? start_parameter.hashCode() : 0);
+        result = 31 * result + (startParameter != null ? startParameter.hashCode() : 0);
         result = 31 * result + (currency != null ? currency.hashCode() : 0);
-        result = 31 * result + (total_amount != null ? total_amount.hashCode() : 0);
+        result = 31 * result + (totalAmount != null ? totalAmount.hashCode() : 0);
         return result;
     }
 
@@ -74,9 +78,9 @@ public class Invoice implements Serializable {
         return "Invoice{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", start_parameter='" + start_parameter + '\'' +
+                ", startParameter='" + startParameter + '\'' +
                 ", currency='" + currency + '\'' +
-                ", total_amount=" + total_amount +
+                ", totalAmount=" + totalAmount +
                 '}';
     }
 }

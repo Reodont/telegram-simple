@@ -4,12 +4,14 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
 import com.reodont.telegram.eip.Event;
 
 public class NewTextMessage extends Event {
 
     private static final long serialVersionUID = -789398750532953751L;
 
+    @SerializedName("message_id")
     private Integer messageId;
 
     private User from;
@@ -18,16 +20,22 @@ public class NewTextMessage extends Event {
 
     private Chat chat;
 
+    @SerializedName("forward_from")
     private User forwardFrom;
 
+    @SerializedName("forward_from_chat")
     private Chat forwardFromChat;
 
+    @SerializedName("forward_from_message_id")
     private Integer forwardFromMessageId;
 
+    @SerializedName("forward_date")
     private Integer forwardDate;
 
+    @SerializedName("reply_to_message")
     private Message replyToMessage;
 
+    @SerializedName("edit_date")
     private Integer editDate;
 
     private String text;

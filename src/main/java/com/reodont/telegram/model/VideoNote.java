@@ -4,12 +4,15 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class VideoNote implements Serializable {
 
     private static final long serialVersionUID = 9001377338511086794L;
 
+    @SerializedName("file_id")
     private String fileId;
 
     private Integer length;
@@ -18,6 +21,7 @@ public class VideoNote implements Serializable {
 
     private PhotoSize thumb;
 
+    @SerializedName("file_size")
     private Integer fileSize;
 
     public static long getSerialVersionUID() {

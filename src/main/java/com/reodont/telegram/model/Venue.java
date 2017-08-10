@@ -4,6 +4,8 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Venue implements Serializable {
@@ -16,6 +18,7 @@ public class Venue implements Serializable {
 
     private String address;
 
+    @SerializedName("foursquare_id")
     private String foursquareId;
 
     public static long getSerialVersionUID() {

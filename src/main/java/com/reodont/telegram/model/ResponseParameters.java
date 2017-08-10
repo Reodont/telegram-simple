@@ -4,14 +4,18 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class ResponseParameters implements Serializable {
 
     private static final long serialVersionUID = -8984864567574867667L;
 
+    @SerializedName("migrate_to_chat_id")
     private Long migrateToChatId;
 
+    @SerializedName("retry_after")
     private Integer retryAfter;
 
     public static long getSerialVersionUID() {

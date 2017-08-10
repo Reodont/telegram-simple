@@ -4,12 +4,14 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
 import com.reodont.telegram.eip.Event;
 
 public class NewAudio extends Event {
 
     private static final long serialVersionUID = 4602882708272002374L;
 
+    @SerializedName("file_id")
     private String fileId;
 
     private Integer duration;
@@ -18,8 +20,10 @@ public class NewAudio extends Event {
 
     private String title;
 
+    @SerializedName("mime_type")
     private String mimeType;
 
+    @SerializedName("file_size")
     private Integer fileSize;
 
 
@@ -50,6 +54,7 @@ public class NewAudio extends Event {
     public Integer getFileSize() {
         return fileSize;
     }
+
 
     @Override
     public boolean equals(Object o) {

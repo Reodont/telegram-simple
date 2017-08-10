@@ -4,6 +4,8 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -11,6 +13,7 @@ public class UserProfilePhotos implements Serializable {
 
     private static final long serialVersionUID = 5055457597827040861L;
 
+    @SerializedName("total_count")
     private Integer totalCount;
 
     private PhotoSize[][] photos;

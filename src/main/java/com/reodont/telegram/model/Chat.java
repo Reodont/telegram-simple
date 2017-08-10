@@ -20,20 +20,24 @@ public class Chat implements Serializable {
 
     private Type type;
 
+    @SerializedName("first_name")
     private String firstName;
 
+    @SerializedName("last_name")
     private String lastName;
 
     private String username;
 
     private String title;
 
+    @SerializedName("all_members_are_administrators")
     private Boolean allMembersAreAdministrators;
 
     private ChatPhoto photo;
 
     private String description;
 
+    @SerializedName("invite_link")
     private String inviteLink;
 
     public static long getSerialVersionUID() {

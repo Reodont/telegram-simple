@@ -4,12 +4,15 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Sticker implements Serializable {
 
     private static final long serialVersionUID = 916045639007403720L;
 
+    @SerializedName("file_id")
     private String fileId;
 
     private Integer width;
@@ -20,10 +23,13 @@ public class Sticker implements Serializable {
 
     private String emoji;
 
+    @SerializedName("set_name")
     private String setName;
 
+    @SerializedName("mask_position")
     private MaskPosition maskPosition;
 
+    @SerializedName("file_size")
     private Integer fileSize;
 
     public static long getSerialVersionUID() {

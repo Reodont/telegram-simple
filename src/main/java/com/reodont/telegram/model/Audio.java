@@ -4,6 +4,8 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 
@@ -11,6 +13,7 @@ public class Audio implements Serializable {
 
     private static final long serialVersionUID = -5427636082374475056L;
 
+    @SerializedName("file_id")
     private String fileId;
 
     private Integer duration;
@@ -19,8 +22,10 @@ public class Audio implements Serializable {
 
     private String title;
 
+    @SerializedName("mime_type")
     private String mimeType;
 
+    @SerializedName("file_size")
     private Integer fileSize;
 
     public static long getSerialVersionUID() {

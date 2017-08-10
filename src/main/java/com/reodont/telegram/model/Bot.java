@@ -4,8 +4,10 @@
 
 package com.reodont.telegram.model;
 
-import com.reodont.telegram.eip.Event;
-import com.reodont.telegram.transmit.*;
+import com.reodont.telegram.transmit.PubSubService;
+import com.reodont.telegram.transmit.Publisher;
+import com.reodont.telegram.transmit.PublisherImplementation;
+import com.reodont.telegram.transmit.Request;
 import com.reodont.telegram.util.ResourceUtils;
 
 import java.io.IOException;
@@ -24,15 +26,15 @@ public class Bot {
         List<Update> updates = request.getUpdates(token);
         Publisher publisher = new PublisherImplementation();
         PubSubService pubSubService = new PubSubService();
-
+        /*
         for (Update update : updates) {
-            if (update.message().text() != null && update.message().text().startsWith("/")) {
-                publisher.publish(new NewCommand(update.message()), pubSubService);
+            if (update.getMessage().getText() != null && update.getMessage().getText().startsWith("/")) {
+                publisher.publish(new NewCommand(update.getMessage()), pubSubService);
                 System.out.println("READ THAT");
-            } else if (update.message().audio() != null)
-                publisher.publish(new NewAudio(update.message()), pubSubService);
-            else if (update.message().text() != null)
-                publisher.publish(new NewTextMessage(update.message()), pubSubService);
+            } else if (update.getMessage().getAudio() != null)
+                publisher.publish(new NewAudio(update.getMessage()), pubSubService);
+            else if (update.getMessage().getText() != null)
+                publisher.publish(new NewTextMessage(update.getMessage()), pubSubService);
             else System.out.println("Unhandled Event!");
         }
 
@@ -47,7 +49,7 @@ public class Bot {
         for (Event event : test.getSubscriberEvents()) {
             System.out.println(event);
         }
-
+        */
 
     }
 }

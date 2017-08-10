@@ -4,6 +4,8 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -16,6 +18,7 @@ public class StickerSet implements Serializable {
 
     private String title;
 
+    @SerializedName("contains_masks")
     private Boolean containsMasks;
 
     private Sticker[] stickers;

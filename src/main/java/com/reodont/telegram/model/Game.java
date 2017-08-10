@@ -4,6 +4,8 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -19,6 +21,7 @@ public class Game implements Serializable {
 
     private String text;
 
+    @SerializedName("text_entities")
     private MessageEntity[] textEntities;
 
     private Animation animation;

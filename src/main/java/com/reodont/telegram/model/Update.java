@@ -4,26 +4,35 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Update implements Serializable {
 
     private static final long serialVersionUID = 6754827162861790992L;
 
+    @SerializedName("update_id")
     private Integer updateId;
 
     private Message message;
 
+    @SerializedName("edited_message")
     private Message editedMessage;
 
+    @SerializedName("channel_post")
     private Message channelPost;
 
+    @SerializedName("edited_channel_post")
     private Message editedChannelPost;
 
+    @SerializedName("inline_query")
     private InlineQuery inlineQuery;
 
+    @SerializedName("chosen_inline_result")
     private ChosenInlineResult chosenInlineResult;
 
+    @SerializedName("callback_query")
     private CallbackQuery callbackQuery;
 
     public static long getSerialVersionUID() {

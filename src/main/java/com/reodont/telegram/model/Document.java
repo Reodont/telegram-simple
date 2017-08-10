@@ -4,20 +4,26 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Document implements Serializable {
 
     private static final long serialVersionUID = -8965588808218758708L;
 
+    @SerializedName("file_id")
     private String fileId;
 
     private PhotoSize thumb;
 
+    @SerializedName("file_name")
     private String fileName;
 
+    @SerializedName("mime_type")
     private String mimeType;
 
+    @SerializedName("file_size")
     private Integer fileSize;
 
     public static long getSerialVersionUID() {

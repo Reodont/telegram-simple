@@ -65,7 +65,7 @@ public class Request {
     }
 
     public Message sendMessage(Message message, String token) throws IOException {
-        String messageParameters = "chat_id=" + message.chat().id().toString() + "&text=" + message.text();
+        String messageParameters = "chat_id=" + message.getChat().getId().toString() + "&text=" + message.getText();
         String content = makeRequest("https://api.telegram.org/bot" + token + "/sendMessage", messageParameters);
         return (Message) new Gson().fromJson(content, Message.class);
 

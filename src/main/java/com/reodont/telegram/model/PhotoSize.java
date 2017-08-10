@@ -4,18 +4,22 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class PhotoSize implements Serializable {
 
     private static final long serialVersionUID = 5907384692976649033L;
 
+    @SerializedName("file_id")
     private String fileId;
 
     private Integer width;
 
     private Integer height;
 
+    @SerializedName("file_size")
     private Integer fileSize;
 
     public static long getSerialVersionUID() {

@@ -1,5 +1,7 @@
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.Arrays;
 
@@ -7,6 +9,7 @@ public class Message implements Serializable {
 
     private static final long serialVersionUID = 1067397950481020177L;
 
+    @SerializedName("message_id")
     private Integer messageId;
 
     private User from;
@@ -15,16 +18,22 @@ public class Message implements Serializable {
 
     private Chat chat;
 
+    @SerializedName("forward_from")
     private User forwardFrom;
 
+    @SerializedName("forward_from_chat")
     private Chat forwardFromChat;
 
+    @SerializedName("forward_from_message_id")
     private Integer forwardFromMessageId;
 
+    @SerializedName("forward_date")
     private Integer forwardDate;
 
+    @SerializedName("reply_to_message")
     private Message replyToMessage;
 
+    @SerializedName("edit_date")
     private Integer editDate;
 
     private String text;
@@ -45,8 +54,10 @@ public class Message implements Serializable {
 
     private Voice voice;
 
+    @SerializedName("video_note")
     private VideoNote videoNote;
 
+    @SerializedName("new_chat_members")
     private User[] newChatMembers;
 
     private String caption;
@@ -57,26 +68,37 @@ public class Message implements Serializable {
 
     private Venue venue;
 
+    @SerializedName("new_chat_member")
     private User newChatMember;
 
+    @SerializedName("left_chat_member")
     private User leftChatMember;
 
+    @SerializedName("new_chat_title")
     private String newChatTitle;
 
+    @SerializedName("new_chat_photo")
     private PhotoSize[] newChatPhoto;
 
+    @SerializedName("delete_chat_photo")
     private Boolean deleteChatPhoto;
 
+    @SerializedName("group_chat_created")
     private Boolean groupChatCreated;
 
+    @SerializedName("supergroup_chat_created")
     private Boolean supergroupChatCreated;
 
+    @SerializedName("channel_chat_created")
     private Boolean channelChatCreated;
 
+    @SerializedName("migrate_to_chat_id")
     private Long migrateToChatId;
 
+    @SerializedName("migrate_from_chat_id")
     private Long migrateFromChatId;
 
+    @SerializedName("pinned_message")
     private Message pinnedMessage;
 
     private Invoice invoice;

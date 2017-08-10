@@ -4,6 +4,8 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class CallbackQuery implements Serializable {
@@ -16,12 +18,15 @@ public class CallbackQuery implements Serializable {
 
     private Message message;
 
+    @SerializedName("inline_message_id")
     private String inlineMessageId;
 
+    @SerializedName("chat_instance")
     private String chatInstance;
 
     private String data;
 
+    @SerializedName("game_short_name")
     private String gameShortName;
 
     public static long getSerialVersionUID() {

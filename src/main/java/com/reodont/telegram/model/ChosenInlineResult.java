@@ -4,18 +4,22 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class ChosenInlineResult implements Serializable {
 
     private static final long serialVersionUID = 1320768760873415945L;
 
+    @SerializedName("result_id")
     private String resultId;
 
     private User from;
 
     private Location location;
 
+    @SerializedName("inline_message_id")
     private String inlineMessageId;
 
     private String query;

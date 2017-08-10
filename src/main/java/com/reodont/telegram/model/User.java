@@ -4,6 +4,8 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -12,12 +14,15 @@ public class User implements Serializable {
 
     private Integer id;
 
+    @SerializedName("first_name")
     private String firstName;
 
+    @SerializedName("last_name")
     private String lastName;
 
     private String username;
 
+    @SerializedName("language_code")
     private String languageCode;
 
     public static long getSerialVersionUID() {

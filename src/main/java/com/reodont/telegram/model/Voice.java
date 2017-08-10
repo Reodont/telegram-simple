@@ -4,18 +4,23 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Voice implements Serializable {
 
     private static final long serialVersionUID = 8150402198580726783L;
 
+    @SerializedName("file_id")
     private String fileId;
 
     private Integer duration;
 
+    @SerializedName("mime_type")
     private String mimeType;
 
+    @SerializedName("file_size")
     private Integer fileSize;
 
     public static long getSerialVersionUID() {

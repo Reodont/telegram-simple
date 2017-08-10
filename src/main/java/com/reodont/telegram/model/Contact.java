@@ -4,18 +4,24 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class Contact implements Serializable {
 
     private static final long serialVersionUID = 7191801611641193262L;
 
+    @SerializedName("phone_number")
     private String phoneNumber;
 
+    @SerializedName("first_name")
     private String firstName;
 
+    @SerializedName("last_name")
     private String lastName;
 
+    @SerializedName("user_id")
     private Integer userId;
 
     public static long getSerialVersionUID() {

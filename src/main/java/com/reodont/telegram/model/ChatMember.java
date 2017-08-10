@@ -4,6 +4,8 @@
 
 package com.reodont.telegram.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class ChatMember implements Serializable {
@@ -18,32 +20,46 @@ public class ChatMember implements Serializable {
 
     private Status status;
 
+    @SerializedName("until_date")
     private Integer untilDate;
 
+    @SerializedName("can_be_edited")
     private Boolean canBeEdited;
 
+    @SerializedName("can_change_info")
     private Boolean canChangeInfo;
 
+    @SerializedName("can_post_messages")
     private Boolean canPostMessages;
 
+    @SerializedName("can_edit_messages")
     private Boolean canEditMessages;
 
+    @SerializedName("can_delete_messages")
     private Boolean canDeleteMessages;
 
+    @SerializedName("can_invite_users")
     private Boolean canInviteUsers;
 
+    @SerializedName("can_restrict_members")
     private Boolean canRestrictMembers;
 
+    @SerializedName("can_pin_messages")
     private Boolean canPinMessages;
 
+    @SerializedName("can_promote_members")
     private Boolean canPromoteMembers;
 
+    @SerializedName("can_send_messages")
     private Boolean canSendMessages;
 
+    @SerializedName("can_send_media_messages")
     private Boolean canSendMediaMessages;
 
+    @SerializedName("can_send_other_messages")
     private Boolean canSendOtherMessages;
 
+    @SerializedName("can_add_web_page_previews")
     private Boolean canAddWebPagePreviews;
 
     public static long getSerialVersionUID() {
