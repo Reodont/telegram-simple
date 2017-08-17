@@ -1,6 +1,11 @@
-package com.reodont.telegram.model;
+/*
+ * Copyright (c) 2017.  Roman Kvasnytskyy.
+ */
+
+package com.reodont.telegram.model.com.reodont.telegram.model.object;
 
 import com.google.gson.annotations.SerializedName;
+import com.reodont.telegram.model.NewTextMessage;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -255,8 +260,8 @@ public class Message implements Serializable {
         return invoice;
     }
 
-    public Message(NewTextMessage event) {
-        this.text = event.getMessage().getText();
+    public Message(NewTextMessage event, String text) {
+        this.text = text;
         this.chat = event.getMessage().getChat();
     }
 

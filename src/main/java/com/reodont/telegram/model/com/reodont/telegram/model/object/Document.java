@@ -2,20 +2,23 @@
  * Copyright (c) 2017.  Roman Kvasnytskyy.
  */
 
-package com.reodont.telegram.model;
+package com.reodont.telegram.model.com.reodont.telegram.model.object;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Voice implements Serializable {
+public class Document implements Serializable {
 
-    private static final long serialVersionUID = 8150402198580726783L;
+    private static final long serialVersionUID = -8965588808218758708L;
 
     @SerializedName("file_id")
     private String fileId;
 
-    private Integer duration;
+    private PhotoSize thumb;
+
+    @SerializedName("file_name")
+    private String fileName;
 
     @SerializedName("mime_type")
     private String mimeType;
@@ -31,8 +34,12 @@ public class Voice implements Serializable {
         return fileId;
     }
 
-    public Integer getDuration() {
-        return duration;
+    public PhotoSize getThumb() {
+        return thumb;
+    }
+
+    public String getFileName() {
+        return fileName;
     }
 
     public String getMimeType() {
@@ -48,18 +55,20 @@ public class Voice implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Voice voice = (Voice) o;
+        Document document = (Document) o;
 
-        if (fileId != null ? !fileId.equals(voice.fileId) : voice.fileId != null) return false;
-        if (duration != null ? !duration.equals(voice.duration) : voice.duration != null) return false;
-        if (mimeType != null ? !mimeType.equals(voice.mimeType) : voice.mimeType != null) return false;
-        return fileSize != null ? fileSize.equals(voice.fileSize) : voice.fileSize == null;
+        if (fileId != null ? !fileId.equals(document.fileId) : document.fileId != null) return false;
+        if (thumb != null ? !thumb.equals(document.thumb) : document.thumb != null) return false;
+        if (fileName != null ? !fileName.equals(document.fileName) : document.fileName != null) return false;
+        if (mimeType != null ? !mimeType.equals(document.mimeType) : document.mimeType != null) return false;
+        return fileSize != null ? fileSize.equals(document.fileSize) : document.fileSize == null;
     }
 
     @Override
     public int hashCode() {
         int result = fileId != null ? fileId.hashCode() : 0;
-        result = 31 * result + (duration != null ? duration.hashCode() : 0);
+        result = 31 * result + (thumb != null ? thumb.hashCode() : 0);
+        result = 31 * result + (fileName != null ? fileName.hashCode() : 0);
         result = 31 * result + (mimeType != null ? mimeType.hashCode() : 0);
         result = 31 * result + (fileSize != null ? fileSize.hashCode() : 0);
         return result;
@@ -67,9 +76,10 @@ public class Voice implements Serializable {
 
     @Override
     public String toString() {
-        return "Voice{" +
+        return "Document{" +
                 "fileId='" + fileId + '\'' +
-                ", duration=" + duration +
+                ", thumb=" + thumb +
+                ", fileName='" + fileName + '\'' +
                 ", mimeType='" + mimeType + '\'' +
                 ", fileSize=" + fileSize +
                 '}';

@@ -2,7 +2,7 @@
  * Copyright (c) 2017.  Roman Kvasnytskyy.
  */
 
-package com.reodont.telegram.model;
+package com.reodont.telegram.model.com.reodont.telegram.model.object;
 
 import java.io.Serializable;
 

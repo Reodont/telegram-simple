@@ -2,15 +2,15 @@
  * Copyright (c) 2017.  Roman Kvasnytskyy.
  */
 
-package com.reodont.telegram.model;
+package com.reodont.telegram.model.com.reodont.telegram.model.object;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Document implements Serializable {
+public class Animation implements Serializable {
 
-    private static final long serialVersionUID = -8965588808218758708L;
+    private static final long serialVersionUID = 7362662984394436659L;
 
     @SerializedName("file_id")
     private String fileId;
@@ -30,23 +30,23 @@ public class Document implements Serializable {
         return serialVersionUID;
     }
 
-    public String getFileId() {
+    public String fileId() {
         return fileId;
     }
 
-    public PhotoSize getThumb() {
+    public PhotoSize thumb() {
         return thumb;
     }
 
-    public String getFileName() {
+    public String fileName() {
         return fileName;
     }
 
-    public String getMimeType() {
+    public String mimeType() {
         return mimeType;
     }
 
-    public Integer getFileSize() {
+    public Integer fileSize() {
         return fileSize;
     }
 
@@ -55,13 +55,13 @@ public class Document implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Document document = (Document) o;
+        Animation animation = (Animation) o;
 
-        if (fileId != null ? !fileId.equals(document.fileId) : document.fileId != null) return false;
-        if (thumb != null ? !thumb.equals(document.thumb) : document.thumb != null) return false;
-        if (fileName != null ? !fileName.equals(document.fileName) : document.fileName != null) return false;
-        if (mimeType != null ? !mimeType.equals(document.mimeType) : document.mimeType != null) return false;
-        return fileSize != null ? fileSize.equals(document.fileSize) : document.fileSize == null;
+        if (fileId != null ? !fileId.equals(animation.fileId) : animation.fileId != null) return false;
+        if (thumb != null ? !thumb.equals(animation.thumb) : animation.thumb != null) return false;
+        if (fileName != null ? !fileName.equals(animation.fileName) : animation.fileName != null) return false;
+        if (mimeType != null ? !mimeType.equals(animation.mimeType) : animation.mimeType != null) return false;
+        return fileSize != null ? fileSize.equals(animation.fileSize) : animation.fileSize == null;
     }
 
     @Override
@@ -76,7 +76,7 @@ public class Document implements Serializable {
 
     @Override
     public String toString() {
-        return "Document{" +
+        return "Animation{" +
                 "fileId='" + fileId + '\'' +
                 ", thumb=" + thumb +
                 ", fileName='" + fileName + '\'' +

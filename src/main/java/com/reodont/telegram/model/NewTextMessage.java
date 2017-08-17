@@ -5,6 +5,7 @@
 package com.reodont.telegram.model;
 
 import com.reodont.telegram.eip.Event;
+import com.reodont.telegram.model.com.reodont.telegram.model.object.Message;
 
 public class NewTextMessage extends Event {
 

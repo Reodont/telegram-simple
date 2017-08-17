@@ -6,6 +6,9 @@ package com.reodont.telegram.model;
 
 import com.google.gson.annotations.SerializedName;
 import com.reodont.telegram.eip.Event;
+import com.reodont.telegram.model.com.reodont.telegram.model.object.Chat;
+import com.reodont.telegram.model.com.reodont.telegram.model.object.Message;
+import com.reodont.telegram.model.com.reodont.telegram.model.object.User;
 
 public class NewCommand extends Event {
 

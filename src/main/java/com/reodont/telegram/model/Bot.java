@@ -4,6 +4,7 @@
 
 package com.reodont.telegram.model;
 
+import com.reodont.telegram.model.com.reodont.telegram.model.object.Update;
 import com.reodont.telegram.subcriber.MessageSubscriber;
 import com.reodont.telegram.transmit.Publisher;
 import com.reodont.telegram.transmit.Request;
@@ -23,14 +24,13 @@ public class Bot {
 
     public void longPolling() throws IOException {
         Request request = new Request();
-        List<Update> updates = request.getUpdates(token);
+        List<Update> updates = request.getUpdates();
         Publisher publisher = new Publisher();
         Subscriber messageSubscriber = new MessageSubscriber();
 
         publisher.addSubscriber(new NewTextMessage(), messageSubscriber);
 
         for (Update update : updates) {
-            System.out.println(update.getUpdateId().toString());
             if (update.getMessage() != null)
                 publisher.publish(new NewTextMessage(update.getMessage()));
         }
