@@ -9,6 +9,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
+import com.reodont.telegram.model.com.reodont.telegram.model.object.Chat;
 import com.reodont.telegram.model.com.reodont.telegram.model.object.Message;
 import com.reodont.telegram.model.com.reodont.telegram.model.object.Update;
 import com.reodont.telegram.util.ResourceUtils;
@@ -76,9 +77,65 @@ public class Request {
     }
 
     public Message sendMessage(Message message) throws IOException {
-        String content = makeRequest("https://api.telegram.org/bot" + token + "/sendMessage", "?chat_id=" + message.getChat().getId() + "&text=" + URLEncoder.encode(message.getText(), "UTF-8"));
+        String content = makeRequest("https://api.telegram.org/bot" + token
+                + "/sendMessage", "?chat_id=" + message.getChat().getId()
+                + "&text=" + URLEncoder.encode(message.getText(), "UTF-8"));
 
         return (Message) new Gson().fromJson(content, Message.class);
 
     }
+
+    public void getMe() throws IOException {
+        makeRequest("https://api.telegram.org/bot" + token + "/getMe");
+    }
+
+    public Message forwardMessage(Message message, Chat destinationChat) throws IOException {
+        String content = makeRequest("https://api.telegram.org/bot" + token
+                + "/forwardMessage", "?chat_id=" + destinationChat.getId() +
+                "&from_chat_id=" + message.getChat().getId() +
+                "&text=" + URLEncoder.encode(message.getText(), "UTF-8"));
+
+        return (Message) new Gson().fromJson(content, Message.class);
+    }
+
+    public Message sendPhoto(Message message) throws IOException {
+        String content = makeRequest("https://api.telegram.org/bot" + token
+                + "/sendPhoto", "?chat_id=" + message.getChat().getId()
+                + "&photo=" + URLEncoder.encode(message.getPhoto()[0].getFileId(), "UTF-8"));
+
+        return (Message) new Gson().fromJson(content, Message.class);
+    }
+
+    public Message sendAudio(Message message) throws IOException {
+        String content = makeRequest("https://api.telegram.org/bot" + token
+                + "/sendAudio", "?chat_id=" + message.getChat().getId()
+                + "&audio=" + URLEncoder.encode(message.getText(), "UTF-8"));
+
+        return (Message) new Gson().fromJson(content, Message.class);
+    }
+
+    public Message sendDocument(Message message) throws IOException {
+        String content = makeRequest("https://api.telegram.org/bot" + token
+                + "/sendDocument", "?chat_id=" + message.getChat().getId()
+                + "&document=" + URLEncoder.encode(message.getText(), "UTF-8"));
+
+        return (Message) new Gson().fromJson(content, Message.class);
+    }
+
+    public Message sendVideo(Message message) throws IOException {
+        String content = makeRequest("https://api.telegram.org/bot" + token
+                + "/sendVideo", "?chat_id=" + message.getChat().getId()
+                + "&video=" + URLEncoder.encode(message.getText(), "UTF-8"));
+
+        return (Message) new Gson().fromJson(content, Message.class);
+    }
+
+    public Message sendVoice(Message message) throws IOException {
+        String content = makeRequest("https://api.telegram.org/bot" + token
+                + "/sendVoice", "?chat_id=" + message.getChat().getId()
+                + "&voice=" + URLEncoder.encode(message.getText(), "UTF-8"));
+
+        return (Message) new Gson().fromJson(content, Message.class);
+    }
+
 }
