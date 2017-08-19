@@ -20,7 +20,7 @@ public class MessageSubscriber extends Subscriber {
     public void replyMessage(NewTextMessage event) {
         try {
             Request request = new Request();
-            request.sendMessage(new Message(event, "I am a Test Bot. Have a nice day! "));
+            request.sendVideo(new Message(event), "http://techslides.com/demos/sample-videos/small.mp4");
         } catch (IOException e) {
             e.printStackTrace();
         }

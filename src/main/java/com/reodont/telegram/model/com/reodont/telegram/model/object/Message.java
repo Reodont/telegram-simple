@@ -260,6 +260,10 @@ public class Message implements Serializable {
         return invoice;
     }
 
+    public Message(NewTextMessage event) {
+        this.chat = event.getMessage().getChat();
+    }
+
     public Message(NewTextMessage event, String text) {
         this.text = text;
         this.chat = event.getMessage().getChat();
