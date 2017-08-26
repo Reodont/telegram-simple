@@ -6,6 +6,7 @@ package com.reodont.telegram.transmit;
 
 import com.reodont.telegram.eip.Event;
 
+import java.io.IOException;
 import java.util.*;
 
 public class Publisher {
@@ -31,7 +32,7 @@ public class Publisher {
 
     }
 
-    public void broadcast() {
+    public void broadcast() throws IOException {
         if (eventsQueue.isEmpty()) {
             System.out.println("No messages to display");
         } else {

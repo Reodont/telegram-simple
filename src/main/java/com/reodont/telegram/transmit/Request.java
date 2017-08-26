@@ -63,8 +63,8 @@ public class Request {
         }.getType());
 
         if (!updateList.isEmpty()) {
-            OutputStream out = null;
-            File f = new File("src/main/resources/token.properties");
+            OutputStream out;
+            File f = new File(this.getClass().getResource("/token.properties").getFile());
 
             properties.load(new FileReader(f));
             properties.setProperty("telegram.offset", "" + (updateList.get(updateList.size() - 1).getUpdateId() + 1));

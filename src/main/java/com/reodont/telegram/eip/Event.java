@@ -4,5 +4,5 @@
 
 package com.reodont.telegram.eip;
 
-public abstract class Event extends Message {
+public class Event implements Message {
 }

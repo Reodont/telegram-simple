@@ -10,7 +10,7 @@ public final class ResourceUtils {
         throw new AssertionError("This class is not for you");
     }
 
-    public static InputStream getResourceAsStream(final String fileName) {
+    public static InputStream getResourceAsStream(final String fileName) throws IOException {
         ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
         return contextClassLoader.getResourceAsStream(fileName);
     }

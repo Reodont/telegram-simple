@@ -6,5 +6,5 @@ package com.reodont.telegram.eip;
 
 import java.io.Serializable;
 
-public abstract class Message implements Serializable {
+public interface Message extends Serializable {
 }

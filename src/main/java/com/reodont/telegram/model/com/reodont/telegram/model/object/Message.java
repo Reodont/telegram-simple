@@ -5,6 +5,8 @@
 package com.reodont.telegram.model.com.reodont.telegram.model.object;
 
 import com.google.gson.annotations.SerializedName;
+import com.reodont.telegram.eip.Event;
+import com.reodont.telegram.model.NewCommand;
 import com.reodont.telegram.model.NewTextMessage;
 
 import java.io.Serializable;
@@ -260,11 +262,16 @@ public class Message implements Serializable {
         return invoice;
     }
 
-    public Message(NewTextMessage event) {
-        this.chat = event.getMessage().getChat();
+    public Message(Event event) {
+        this.chat = ((NewTextMessage) event).getMessage().getChat();
     }
 
     public Message(NewTextMessage event, String text) {
+        this.text = text;
+        this.chat = event.getMessage().getChat();
+    }
+
+    public Message(NewCommand event, String text) {
         this.text = text;
         this.chat = event.getMessage().getChat();
     }
