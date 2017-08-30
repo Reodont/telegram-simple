@@ -5,7 +5,9 @@
 package com.reodont.telegram.model;
 
 import com.reodont.telegram.eip.Event;
-import com.reodont.telegram.model.com.reodont.telegram.model.object.Message;
+import com.reodont.telegram.model.object.Message;
+
+import java.io.IOException;
 
 public class NewCommand extends Event {
 
@@ -22,10 +24,10 @@ public class NewCommand extends Event {
         return message;
     }
 
-    public NewCommand() {
+    public NewCommand() throws IOException {
     }
 
-    public NewCommand(Message message) {
+    public NewCommand(Message message) throws IOException {
         this.message = message;
     }
 

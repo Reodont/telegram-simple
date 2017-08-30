@@ -2,16 +2,16 @@
  * Copyright (c) 2017.  Roman Kvasnytskyy.
  */
 
-package com.reodont.telegram.model;
+package com.reodont.telegram.model.object;
 
 import com.google.gson.annotations.SerializedName;
-import com.reodont.telegram.eip.Event;
 
-import java.io.IOException;
+import java.io.Serializable;
 
-public class NewAudio extends Event {
 
-    private static final long serialVersionUID = 4602882708272002374L;
+public class Audio implements Serializable {
+
+    private static final long serialVersionUID = -5427636082374475056L;
 
     @SerializedName("file_id")
     private String fileId;
@@ -28,8 +28,8 @@ public class NewAudio extends Event {
     @SerializedName("file_size")
     private Integer fileSize;
 
-
     public static long getSerialVersionUID() {
+
         return serialVersionUID;
     }
 
@@ -57,23 +57,19 @@ public class NewAudio extends Event {
         return fileSize;
     }
 
-    public NewAudio() throws IOException {
-    }
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        NewAudio newAudio = (NewAudio) o;
+        Audio audio = (Audio) o;
 
-        if (fileId != null ? !fileId.equals(newAudio.fileId) : newAudio.fileId != null) return false;
-        if (duration != null ? !duration.equals(newAudio.duration) : newAudio.duration != null) return false;
-        if (performer != null ? !performer.equals(newAudio.performer) : newAudio.performer != null) return false;
-        if (title != null ? !title.equals(newAudio.title) : newAudio.title != null) return false;
-        if (mimeType != null ? !mimeType.equals(newAudio.mimeType) : newAudio.mimeType != null) return false;
-        return fileSize != null ? fileSize.equals(newAudio.fileSize) : newAudio.fileSize == null;
+        if (fileId != null ? !fileId.equals(audio.fileId) : audio.fileId != null) return false;
+        if (duration != null ? !duration.equals(audio.duration) : audio.duration != null) return false;
+        if (performer != null ? !performer.equals(audio.performer) : audio.performer != null) return false;
+        if (title != null ? !title.equals(audio.title) : audio.title != null) return false;
+        if (mimeType != null ? !mimeType.equals(audio.mimeType) : audio.mimeType != null) return false;
+        return fileSize != null ? fileSize.equals(audio.fileSize) : audio.fileSize == null;
     }
 
     @Override
@@ -89,7 +85,7 @@ public class NewAudio extends Event {
 
     @Override
     public String toString() {
-        return "NewAudio{" +
+        return "Audio{" +
                 "fileId='" + fileId + '\'' +
                 ", duration=" + duration +
                 ", performer='" + performer + '\'' +

@@ -4,18 +4,36 @@
 
 package com.reodont.telegram.dsl;
 
+import com.reodont.telegram.eip.Event;
+import com.reodont.telegram.model.NewCommand;
+import com.reodont.telegram.model.object.Message;
+import com.reodont.telegram.transmit.Request;
 import com.reodont.telegram.transmit.Subscriber;
 
-import java.io.IOException;
+import java.util.Queue;
+import java.util.function.Consumer;
 
-public abstract class Pipeline extends Subscriber {
+@SuppressWarnings("unchecked")
+public class Pipeline extends Subscriber {
 
-    public Pipeline() {
-    }
+    Queue<Consumer<Event>> pipelineQueue;
 
     public Pipeline(PipelineBuilder pipelineBuilder) {
-        this.setPipelineBuilder(pipelineBuilder);
+        pipelineQueue = pipelineBuilder.createPipelineQueue();
     }
 
-    public abstract void onEvent(Object event) throws IOException;
+    public void onEvent(Object event) {
+        try {
+            Request request = new Request();
+
+            if (!pipelineQueue.isEmpty()) {
+                Consumer consumer = pipelineQueue.remove();
+                consumer.accept(event);
+            } else request.sendMessage(new Message((NewCommand) event, "Command execution ended!"));
+        } catch (ClassCastException classCastException) {
+            System.out.println("Something went wrong :c");
+        } catch (Exception exception) {
+        }
+
+    }
 }

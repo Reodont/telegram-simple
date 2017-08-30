@@ -17,15 +17,14 @@ public class Bot {
     public Bot() throws IOException {
     }
 
-        /*public void longPolling() throws IOException {
+    public void longPolling() throws IOException {
 
-            Request request = new Request();
+           /* Request request = new Request();
             List<Update> updates = request.getUpdates();
             Publisher publisher = new Publisher();
             Subscriber messageSubscriber = new MessageSubscriber();
 
             publisher.addSubscriber(new NewTextMessage(), messageSubscriber);
-            publisher.addSubscriber(new NewCommand(), commandSubscriber);
 
             for (Update update : updates) {
                 if (update.getMessage() != null)
@@ -34,8 +33,8 @@ public class Bot {
                     else publisher.publish(new NewCommand(update.getMessage()));
             }
 
-            publisher.broadcast();
+            publisher.broadcast();*/
 
-        }*/
+    }
 }
 

@@ -9,6 +9,7 @@ import com.reodont.telegram.eip.Event;
 import java.io.IOException;
 import java.util.*;
 
+@SuppressWarnings("unchecked")
 public class Publisher {
 
     private Map<Class<? extends Event>, List<Subscriber>> subscribersTopicMap = new HashMap<>();

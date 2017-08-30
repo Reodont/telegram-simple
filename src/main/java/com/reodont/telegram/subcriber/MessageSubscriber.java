@@ -5,7 +5,7 @@
 package com.reodont.telegram.subcriber;
 
 import com.reodont.telegram.model.NewTextMessage;
-import com.reodont.telegram.model.com.reodont.telegram.model.object.Message;
+import com.reodont.telegram.model.object.Message;
 import com.reodont.telegram.transmit.Request;
 import com.reodont.telegram.transmit.Subscriber;
 

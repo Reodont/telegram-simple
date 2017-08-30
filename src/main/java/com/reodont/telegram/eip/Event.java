@@ -4,5 +4,9 @@
 
 package com.reodont.telegram.eip;
 
+import java.io.IOException;
+
 public class Event implements Message {
+    public Event() throws IOException {
+    }
 }

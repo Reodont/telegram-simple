@@ -1,38 +1,23 @@
-/*
- * Copyright (c) 2017.  Roman Kvasnytskyy.
- */
-
 package com.reodont.telegram.dsl;
 
 import com.reodont.telegram.eip.Event;
 import com.reodont.telegram.model.NewCommand;
+import com.reodont.telegram.model.object.Message;
+import com.reodont.telegram.transmit.Request;
 
+import java.util.Queue;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
-public class PipelineBuilder {
 
-    private Event event;
+public abstract class PipelineBuilder {
 
-    public PipelineBuilder() {
-    }
+    public abstract Queue<Consumer<Event>> createPipelineQueue();
 
-    public PipelineBuilder(Event event) {
-        this.event = (NewCommand) event;
-    }
-
-    public PipelineBuilder firstStep(Consumer handleMessage) {
-        handleMessage.accept("All is fine!");
-        return this;
-    }
-
-    public PipelineBuilder nextStep(Supplier handleMessage) {
-        handleMessage.get();
-        return this;
-    }
-
-    public Pipeline done() {
-        return null;
+    public void thenReply(Event event, String text) {
+        try {
+            new Request().sendMessage(new Message((NewCommand) event, text));
+        } catch (Exception e) {
+        }
     }
 
 }
